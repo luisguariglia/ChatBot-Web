@@ -1,0 +1,11 @@
+<h2>Lista De Usuarios</h2>
+<ul class="">
+  <li *ngFor="let usuario of usuarios">
+    <a routerLink="/detail/{{usuario.id}}">
+      <span class="">{{usuario.id}}</span> {{usuario.nombre}}
+    </a>
+  </li>
+</ul>
+<button (click)="goBack()">volver</button>
+<!--<app-detalle-usuario [usuario]="selectedUser"></app-detalle-usuario>
+-->

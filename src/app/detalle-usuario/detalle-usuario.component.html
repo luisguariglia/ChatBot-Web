@@ -1,0 +1,18 @@
+<div *ngIf="usuario">
+
+    <h2>{{usuario.nombre | uppercase}} Detalles</h2>
+    <div><span>id: </span>{{usuario.id}}</div>
+    <div>
+      <label>nombre:
+        <input [(ngModel)]="usuario.nombre" placeholder="nombre"/>
+      </label><br>
+      <label>apellido:
+        <input [(ngModel)]="usuario.apellido" placeholder="apellido"/>
+      </label><br>
+      <label>cedula:
+        <input [(ngModel)]="usuario.cedula" placeholder="cedula"/>
+      </label>
+
+    </div>
+    <button (click)="goBack()">volver</button>
+  </div>
