@@ -10,6 +10,10 @@ import { DetalleUsuarioComponent } from './detalle-usuario/detalle-usuario.compo
 import { MessagesComponent } from './messages/messages.component';
 import { ChatComponent } from './chat/chat.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { MenuAdminComponent } from './menu-admin/menu-admin.component';
     DetalleUsuarioComponent,
     MessagesComponent,
     ChatComponent,
-    MenuAdminComponent, 
+    MenuAdminComponent,
+    InicioComponent,
+    LoginComponent,
+    RegisterComponent,
+    NavbarComponent, 
   ],
   imports: [
     BrowserModule,

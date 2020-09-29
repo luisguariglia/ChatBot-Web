@@ -4,9 +4,15 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { ChatComponent } from './chat/chat.component';
 import { DetalleUsuarioComponent } from './detalle-usuario/detalle-usuario.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/usuarios', pathMatch: 'full' },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'inicio', component: InicioComponent },
+  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: 'chat', component: ChatComponent },
   { path: 'menuadmin', component: MenuAdminComponent },
   { path: 'usuarios', component: UsuarioComponent },
