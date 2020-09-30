@@ -1,28 +1,8 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">  
-
-    <title>Signin</title>
-
-  </head>
-
-  <body class="text-center w-25">
+<body class="text-center center">
     <div class="form-group">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <h2 class="mb-3 font-weight-normal">Por favor Inicia Sesion</h2>
       <input type="text" [(ngModel)]="cedula" name="" id="" placeholder="Insertar Cedula" class="form-control mb-2">
       <input type="password" [(ngModel)]="password" name="" id="" placeholder="Insertar Contraseña" class="form-control mb-2">
-      <div class="checkbox mb-3">
-        <!--<label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>-->
-        <a href="/register">Registrarse</a>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" (click)="login()">Sign in</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+      <button class="btn btn-lg btn-primary btn-block" (click)="login()">Ingresar</button>
     </div>
   </body>
-</html>

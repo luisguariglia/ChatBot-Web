@@ -7,6 +7,8 @@ import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -16,7 +18,8 @@ const routes: Routes = [
   { path: 'chat', component: ChatComponent },
   { path: 'menuadmin', component: MenuAdminComponent },
   { path: 'usuarios', component: UsuarioComponent },
-  { path: 'detail/:id', component: DetalleUsuarioComponent }
+  { path: 'detail/:id', component: DetalleUsuarioComponent },
+  { path: 'perfil', component: PerfilComponent,canActivate:[AuthGuard] }
 ];
 
 @NgModule({

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
-
+import {Router} from '@angular/router';
+import {AuthService} from '../auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -14,18 +15,31 @@ export class RegisterComponent implements OnInit {
   apellido:string;
   password:string;
   admin:boolean;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private router: Router,
+    private auth: AuthService) { }
 
   ngOnInit(): void {
   }
 
   addUser(){
-    this.http.post<any>('http://localhost:8080/usuario/nuevo', {
-      cedula:this.cedula,
-      nombre:this.nombre,
-      apellido:this.apellido,
-      contrasenia:this.password,
-      admin:false,
-      }).subscribe(data => {alert(data.data);})
+    this.auth.registerUser(this.cedula,this.nombre,this.apellido,this.password)
+    .subscribe(data => {
+      alert(data.data);
+      if(data.data=="Usuario agregado con éxito"){
+        
+        this.auth.loginUser(this.cedula,this.password)
+        .subscribe(data => {
+          if(data.ok){
+            localStorage.setItem("token",data.token);
+            this.router.navigate(['/chat']);
+          }
+        }
+        );
+
       }
+    }
+    );
+    
+    }
 }
