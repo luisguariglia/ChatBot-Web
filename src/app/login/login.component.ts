@@ -24,8 +24,11 @@ export class LoginComponent implements OnInit {
     this.auth.loginUser(this.cedula,this.password)
     .subscribe(data => {
       if(data.ok){
+        //alert(data.usuario.id);
+        this.auth.setActualUser(data.usuario.id);
         localStorage.setItem("token",data.token);
         this.router.navigate(['/chat']);
+        
       }
     }
     );

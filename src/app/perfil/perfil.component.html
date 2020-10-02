@@ -1,1 +1,36 @@
-<p>perfil works!</p>
+
+
+
+<div>
+    <!--<div>
+        <span>Cedula: </span>{{cedula}} <br>
+        <span>Nombre: </span>{{nombre}} <br>
+        <span>Apellido: </span>{{apellido}} <br>
+    </div>-->
+    <label>cedula:
+        <input [(ngModel)]="cedula" value={{cedula}}/>
+      </label><br>
+    <label>nombre:
+        <input [(ngModel)]="nombre" value={{nombre}}/>
+    </label><br>
+    <label>apellido:
+        <input [(ngModel)]="apellido" value={{apellido}}/>
+    </label><br>
+      
+    <button class="btn btn-primary" (click)="editar()">Editar</button><br>
+    <button class="btn btn-warning" (click)="habilitarCambiarContrasenia()">Cambiar Contraseña</button><br>
+    <button class="btn btn-danger" (click)="eliminarUsuario()">Eliminar Cuenta</button><br>
+
+    <div *ngIf="cambiandoContrasenia" >
+        <label>actual:
+            <input [(ngModel)]="actual" type="password" placeholder="contraseña actual"/>
+          </label><br>
+        <label>nueva:
+            <input [(ngModel)]="nueva" type="password" placeholder="contraseña nueva"/>
+        </label><br>
+        <label>confirmar:
+            <input [(ngModel)]="confirmar" type="password" placeholder="repetir nueva contraseña"/>
+        </label><br>
+        <button (click)="cambiarContrasenia()">Confirmar</button>
+    </div>
+</div>
