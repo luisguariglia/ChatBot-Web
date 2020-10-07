@@ -11,10 +11,10 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  { path: 'register', component: RegisterComponent/*,canActivate:[!AuthGuard] */},
+  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
+  { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent,canActivate:[!AuthGuard] },
   { path: 'inicio', component: InicioComponent },
-  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: 'chat', component: ChatComponent },
   { path: 'menuadmin', component: MenuAdminComponent },
   { path: 'usuarios', component: UsuarioComponent },

@@ -1,15 +1,26 @@
-<div class="card mt-4">
-    <div class="card-body">
-      <div class="card-title ">
-        Inserta un nuevo Usuario            
-      </div>
-      <div class="form-group">
-        <input type="text" [(ngModel)]="cedula" name="" id="" placeholder="Insertar Cedula" class="form-control mb-2">
-        <input type="text" [(ngModel)]="nombre" name="" id="" placeholder="Insertar Nombre" class="form-control mb-2">
-        <input type="text" [(ngModel)]="apellido" name="" id="" placeholder="Insertar Apellido" class="form-control mb-2">
-        <input type="password" [(ngModel)]="password" name="" id="" placeholder="Insertar Contraseña" class="form-control mb-2">
-        <input type="password" name="" id="" placeholder="Repetir Contraseña" class="form-control mb-2">     
-      </div>
-      <button class=" btn btn-primary mr-2" (click)="addUser()"> Guardar</button> 
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm">
+      <div class="card mt-4">
+        <div class="card-body">
+          <div class="card-title h3">
+            Registrarse            
+          </div>
+          <div class="form-group">
+            <input type="text" [(ngModel)]="cedula" name="" id="" placeholder="Insertar Cedula" class="form-control mb-2">
+            <input type="text" [(ngModel)]="nombre" name="" id="" placeholder="Insertar Nombre" class="form-control mb-2">
+            <input type="text" [(ngModel)]="apellido" name="" id="" placeholder="Insertar Apellido" class="form-control mb-2">
+            <input type="password" [(ngModel)]="password" name="" id="" placeholder="Insertar Contraseña" class="form-control mb-2">
+            <input type="password" name="" id="" placeholder="Repetir Contraseña" class="form-control mb-2">     
+          </div>
+          <button class=" btn btn-primary" (click)="cancelar()"> Cancelar</button> 
+          <button class=" btn btn-primary mr-2 ml-5" (click)="addUser()"> Guardar</button> 
+        </div>
     </div>
+    </div>
+    <div class="col-sm-1"></div>
   </div>
+</div>
+
+

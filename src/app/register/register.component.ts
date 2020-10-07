@@ -41,5 +41,13 @@ export class RegisterComponent implements OnInit {
     }
     );
     
-    }
+  }
+  cancelar(){
+    /*this.nombre:string;
+    this.cedula:string;
+    this.apellido:string;
+    this.password:string;
+    this.admin:boolean;*/
+    this.router.navigate(['/inicio']);
+  }
 }
