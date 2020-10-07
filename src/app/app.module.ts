@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
-import { DetalleUsuarioComponent } from './detalle-usuario/detalle-usuario.component';
-import { MessagesComponent } from './messages/messages.component';
 import { ChatComponent } from './chat/chat.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -22,8 +20,6 @@ import { TokenInterceptorService} from './token-interceptor.service';
   declarations: [
     AppComponent,
     UsuarioComponent,
-    DetalleUsuarioComponent,
-    MessagesComponent,
     ChatComponent,
     MenuAdminComponent,
     InicioComponent,

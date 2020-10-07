@@ -41,6 +41,11 @@ export class AuthService {
   loggedIn(){
     return !!localStorage.getItem("token");
   }
+  isAdmin(){
+    return this.http.post<any>('http://localhost:8080/usuario/verify', {
+      id:this.getActualUser(),
+      });
+  }
   getToken(){
     return localStorage.getItem("token");
   }
