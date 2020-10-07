@@ -7,15 +7,34 @@
           <div class="card-title h3">
             Registrarse            
           </div>
-          <div class="form-group">
-            <input type="text" [(ngModel)]="cedula" name="" id="" placeholder="Insertar Cedula" class="form-control mb-2">
-            <input type="text" [(ngModel)]="nombre" name="" id="" placeholder="Insertar Nombre" class="form-control mb-2">
-            <input type="text" [(ngModel)]="apellido" name="" id="" placeholder="Insertar Apellido" class="form-control mb-2">
-            <input type="password" [(ngModel)]="password" name="" id="" placeholder="Insertar Contraseña" class="form-control mb-2">
-            <input type="password" name="" id="" placeholder="Repetir Contraseña" class="form-control mb-2">     
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-3"> Cedula: </p>
+                <p class="mb-3">Nombre: </p>
+                <p class="mb-3">Apellido:</p>
+                <p class="mb-3">Contraseña: </p>
+                <p class="mb-3">Repetir Contraseña:  </p>
+                <button class="mt-2 btn btn-primary" (click)="cancelar()" > Cancelar</button> 
+              </div>
+              
+              <div class="col-sm">
+                <form [formGroup]="profileForm" (ngSubmit)="addUser()" class="mt-1">
+                  <input formControlName="cedula"  type="number"   placeholder="Insertar Cedula" class="mb-2"><br>
+                  <input formControlName="nombre"  type="text"placeholder="Insertar Nombre" class="mb-2"><br>
+                  <input formControlName="apellido" type="text"  placeholder="Insertar Apellido" class="mb-2"><br>
+                  <input formControlName="password" type="password" placeholder="Insertar Contraseña" class="mb-2"><br>
+                  <input formControlName="repassword" type="password"  placeholder="Repetir Contraseña" class="mb-2">  <br>   
+      
+                  <br>
+                  <button class=" btn btn-primary" type="submit" [disabled]="!profileForm.valid"> Guardar</button> 
+                </form>
+              </div>
+            </div>
           </div>
-          <button class=" btn btn-primary" (click)="cancelar()"> Cancelar</button> 
-          <button class=" btn btn-primary mr-2 ml-5" (click)="addUser()"> Guardar</button> 
+          
+          
+
         </div>
     </div>
     </div>

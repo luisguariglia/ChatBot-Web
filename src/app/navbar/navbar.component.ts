@@ -7,7 +7,9 @@ import {AuthService} from '../auth.service';
 })
 export class NavbarComponent implements OnInit {
   idAdmin=false;
-  constructor(private authService:AuthService) { }
+  constructor(private authService:AuthService) { 
+    this.pedirAdmin();
+  }
 
   ngOnInit(): void {
     this.pedirAdmin();
