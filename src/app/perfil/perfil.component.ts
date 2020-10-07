@@ -13,7 +13,7 @@ export class PerfilComponent implements OnInit {
   editando:boolean;
 
   cambiandoContrasenia:boolean;
-
+  editandoPerfil:boolean;
   //contraseña
   actual:string;
   nueva:string;
@@ -27,6 +27,9 @@ export class PerfilComponent implements OnInit {
   ngOnInit(): void {
     this.editando=false;
     this.id=this.authService.getActualUser();
+    this.obtenerDatos();
+  }
+  obtenerDatos(){
     this.authService.getUser().subscribe(data => {
       this.nombre=data.usuario.nombre;
       this.apellido=data.usuario.apellido;
@@ -36,14 +39,20 @@ export class PerfilComponent implements OnInit {
   editar(){
     this.authService.updateUser(this.cedula,this.nombre,this.apellido).subscribe(data => {
       if(data.data=="Usuario modificado con exito"){
-        alert("Usuario modificado con exito");
+        this.habilitarEditarPerfil();
+        alert("Usuario modificado con exito");      
       }else{
         alert(data.data);
       }
     })
   }
   habilitarCambiarContrasenia(){
-    this.cambiandoContrasenia=true;
+    this.cambiandoContrasenia=!this.cambiandoContrasenia;
+    this.editandoPerfil=!this.cambiandoContrasenia;
+  }
+  habilitarEditarPerfil(){
+    this.obtenerDatos();
+    this.editandoPerfil=!this.editandoPerfil;
   }
   cambiarContrasenia(){
     this.authService.updateContrasenia(this.actual,this.nueva).subscribe(data => {
