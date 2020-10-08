@@ -16,6 +16,9 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { PerfilComponent } from './perfil/perfil.component';
 import { TokenInterceptorService} from './token-interceptor.service';
+import { AsignaturasAdminComponent } from './asignaturas-admin/asignaturas-admin.component';
+import { NuevaAsignaturaComponent } from './nueva-asignatura/nueva-asignatura.component';
+import { VerAsignaturaComponent } from './ver-asignatura/ver-asignatura.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,7 @@ import { TokenInterceptorService} from './token-interceptor.service';
     LoginComponent,
     RegisterComponent,
     NavbarComponent, 
-    PerfilComponent
+    PerfilComponent, AsignaturasAdminComponent, NuevaAsignaturaComponent, VerAsignaturaComponent
   ],
   imports: [
     BrowserModule,

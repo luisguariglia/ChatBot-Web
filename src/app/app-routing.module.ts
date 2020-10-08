@@ -8,6 +8,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { AuthGuard } from './auth.guard';
+import { AsignaturasAdminComponent } from './asignaturas-admin/asignaturas-admin.component';
+import { NuevaAsignaturaComponent } from './nueva-asignatura/nueva-asignatura.component';
+import { VerAsignaturaComponent } from './ver-asignatura/ver-asignatura.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -17,7 +20,10 @@ const routes: Routes = [
   { path: 'chat', component: ChatComponent },
   { path: 'menuadmin', component: MenuAdminComponent },
   { path: 'usuarios', component: UsuarioComponent },
-  { path: 'perfil', component: PerfilComponent,canActivate:[AuthGuard] }
+  { path: 'perfil', component: PerfilComponent,canActivate:[AuthGuard] },
+  { path: 'asignaturasAdmin', component: AsignaturasAdminComponent},
+  { path: 'nuevaAsignatura', component: NuevaAsignaturaComponent},
+  { path: 'verAsignatura', component: VerAsignaturaComponent},
 ];
 
 @NgModule({

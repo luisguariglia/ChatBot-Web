@@ -14,8 +14,8 @@ import { FormGroup,FormControl,FormBuilder,Validators} from '@angular/forms';
 export class LoginComponent implements OnInit {
   profileForm = new FormGroup({
     cedula: new FormControl('',[
-    Validators.required,
-    Validators.minLength(8)
+    Validators.required//,
+    //Validators.minLength(8)
     ]),
     password: new FormControl('',
     Validators.required

@@ -24,8 +24,10 @@ export class NavbarComponent implements OnInit {
     return this.idAdmin;
   }
   pedirAdmin(){
+    if(this.authService.loggedIn()){
     this.authService.isAdmin().subscribe(data => {
       this.idAdmin=data.data;
     })
   }
+}
 }
