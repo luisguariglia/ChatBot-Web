@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class MessageService {
+export class ChatService {
   messages: string[] = [];
     constructor(private http: HttpClient) { }
 

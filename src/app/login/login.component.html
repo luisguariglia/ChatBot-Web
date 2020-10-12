@@ -1,8 +1,18 @@
 <body class="text-center center">
-    <div class="form-group">
-      <h2 class="mb-3 font-weight-normal">Por favor Inicia Sesion</h2>
-      <input type="text" [(ngModel)]="cedula" name="" id="" placeholder="Insertar Cedula" class="form-control mb-2">
-      <input type="password" [(ngModel)]="password" name="" id="" placeholder="Insertar Contraseña" class="form-control mb-2">
-      <button class="btn btn-lg btn-primary btn-block" (click)="login()">Ingresar</button>
-    </div>
-  </body>
+  
+  <form [formGroup]="profileForm" (ngSubmit)="login()" class="mt-1">
+    <h2 class="mb-3 font-weight-normal">Por favor Inicia Sesion</h2> 
+    <label>
+      Cedula:
+      <input type="number" formControlName="cedula" placeholder="Insertar Cedula" minlength="8">
+    </label>
+    <br>
+    <label>
+      Contraseña
+      <input type="password"formControlName="password" placeholder="Insertar Contraseña">
+    </label>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!profileForm.valid">Ingresar</button>
+  </form>
+
+</body>

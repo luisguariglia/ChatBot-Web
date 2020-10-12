@@ -1,13 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
-import { DetalleUsuarioComponent } from './detalle-usuario/detalle-usuario.component';
-import { MessagesComponent } from './messages/messages.component';
 import { ChatComponent } from './chat/chat.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -18,25 +16,27 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { PerfilComponent } from './perfil/perfil.component';
 import { TokenInterceptorService} from './token-interceptor.service';
+import { AsignaturasAdminComponent } from './asignaturas-admin/asignaturas-admin.component';
+import { NuevaAsignaturaComponent } from './nueva-asignatura/nueva-asignatura.component';
+import { VerAsignaturaComponent } from './ver-asignatura/ver-asignatura.component';
 @NgModule({
   declarations: [
     AppComponent,
     UsuarioComponent,
-    DetalleUsuarioComponent,
-    MessagesComponent,
     ChatComponent,
     MenuAdminComponent,
     InicioComponent,
     LoginComponent,
     RegisterComponent,
     NavbarComponent, 
-    PerfilComponent
+    PerfilComponent, AsignaturasAdminComponent, NuevaAsignaturaComponent, VerAsignaturaComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService,AuthGuard,
   {

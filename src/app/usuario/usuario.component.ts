@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario';
-import { USUARIOS } from '../mock-usuarios';
 import { UsuarioService } from '../usuario.service';
-import { MessageService } from '../message.service';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 @Component({
@@ -15,7 +13,6 @@ export class UsuarioComponent implements OnInit {
   //selectedUser: Usuario;
 
   constructor(private usuarioSevice: UsuarioService,
-     private messageService: MessageService,
      private route: ActivatedRoute,
      private location: Location) {}
      
@@ -30,9 +27,18 @@ export class UsuarioComponent implements OnInit {
   }*/
   getUsuarios(): void {
     this.usuarioSevice.getUsuarios()
-      .subscribe(usuarios => this.usuarios = usuarios);
+    .subscribe(usuarios =>{
+    this.usuarios = usuarios.data;
+    });
   }
   goBack(): void {
     this.location.back();
+  }
+  borrarUsuario(id){
+    if(confirm("Estas seguro que desea eliminar la cuenta? esta accion es permantente")){
+      this.usuarioSevice.borrarUsuario(id).subscribe(data => {
+        alert(data.data);
+      })
+    }
   }
 }

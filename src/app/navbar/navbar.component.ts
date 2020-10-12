@@ -6,12 +6,28 @@ import {AuthService} from '../auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(private authService:AuthService) { }
+  idAdmin=false;
+  constructor(private authService:AuthService) { 
+    this.pedirAdmin();
+  }
 
   ngOnInit(): void {
+    this.pedirAdmin();
   }
   islogin(){
     return this.authService.loggedIn();
   }
+  logOut(){
+    this.authService.logOut();
+  }
+  isAdmin(){
+    return this.idAdmin;
+  }
+  pedirAdmin(){
+    if(this.authService.loggedIn()){
+    this.authService.isAdmin().subscribe(data => {
+      this.idAdmin=data.data;
+    })
+  }
+}
 }

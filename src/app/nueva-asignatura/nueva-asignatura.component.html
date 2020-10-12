@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm">
+        <div class="card mt-4">
+          <div class="card-body">
+            <div class="card-title h3">
+              Registrar nueva asignatura           
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-3"> Codigo: </p>
+                  <p class="mb-3">Nombre: </p>
+                  <p class="mb-3">Creditos:</p>
+                  <p class="mb-3">Programa: </p>
+
+                  <p class="mb-3">Aprueba por:  </p>
+                  <p class="mb-3">Nombre del Docente:  </p>
+                  <p class="mb-3">Correo del Docente:  </p>
+                  <p class="mb-3">Fecha de inscripción:  </p>
+                  <button class="mt-2 btn btn-primary" (click)="cancelar()" > Cancelar</button> 
+                </div>
+                
+                <div class="col-sm">
+                  <form [formGroup]="profileForm" (ngSubmit)="addAsig()" class="mt-1">
+                    <input formControlName="codigo"  type="text"   placeholder="Insertar Codigo" class="mb-2"><br>
+                    <input formControlName="nombre"  type="text"placeholder="Insertar Nombre" class="mb-2"><br>
+                    <input formControlName="creditos" type="number"  placeholder="Insertar Creditos" class="mb-2"><br>
+                    <input formControlName="programa" type="text" placeholder="Insertar Contraseña" class="mb-2"><br>
+
+                    <input formControlName="apruebaPor" type="text"  placeholder="apruebaPor" class="mb-2">  <br>   
+                    <input formControlName="nombreDocente" type="text"  placeholder="nombreDocente" class="mb-2">  <br>
+                    <input formControlName="correoDocente" type="text"  placeholder="correoDocente" class="mb-2">  <br>
+                    <input formControlName="fechaIncripcion" type="text"  placeholder="fechaIncripcion" class="mb-2">  <br>
+
+                    <br>
+                    <button class=" btn btn-primary" type="submit" [disabled]="!profileForm.valid"> Guardar</button> 
+                  </form>
+                </div>
+              </div>
+            </div>
+            
+            
+  
+          </div>
+      </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+  </div>

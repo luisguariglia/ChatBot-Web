@@ -2,35 +2,70 @@
 
 
 <div>
-    <!--<div>
-        <span>Cedula: </span>{{cedula}} <br>
-        <span>Nombre: </span>{{nombre}} <br>
-        <span>Apellido: </span>{{apellido}} <br>
-    </div>-->
-    <label>cedula:
-        <input [(ngModel)]="cedula" value={{cedula}}/>
-      </label><br>
-    <label>nombre:
-        <input [(ngModel)]="nombre" value={{nombre}}/>
-    </label><br>
-    <label>apellido:
-        <input [(ngModel)]="apellido" value={{apellido}}/>
-    </label><br>
-      
-    <button class="btn btn-primary" (click)="editar()">Editar</button><br>
-    <button class="btn btn-warning" (click)="habilitarCambiarContrasenia()">Cambiar Contraseña</button><br>
-    <button class="btn btn-danger" (click)="eliminarUsuario()">Eliminar Cuenta</button><br>
-
-    <div *ngIf="cambiandoContrasenia" >
-        <label>actual:
-            <input [(ngModel)]="actual" type="password" placeholder="contraseña actual"/>
-          </label><br>
-        <label>nueva:
-            <input [(ngModel)]="nueva" type="password" placeholder="contraseña nueva"/>
-        </label><br>
-        <label>confirmar:
-            <input [(ngModel)]="confirmar" type="password" placeholder="repetir nueva contraseña"/>
-        </label><br>
-        <button (click)="cambiarContrasenia()">Confirmar</button>
-    </div>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm">
+            <div *ngIf="!editandoPerfil&&!cambiandoContrasenia" >
+                <div class="card bg-light mb-3" >
+                    <div class="card-header h4">{{nombre}} {{apellido}}
+                        <button class="btn btn-primary float-right" (click)="habilitarEditarPerfil()">Editar Perfil</button><br>
+                    </div>
+                    <div class="card-body">
+                      <p class="card-text h6">Datos Personales</p>
+                      <p class="card-text">Cedula: {{cedula}}</p>
+                    </div>
+                  </div>
+            </div>
+        
+            <div *ngIf="editandoPerfil" >
+                <div class="card bg-light mb-3" >
+                    <div class="card-header h4">Edita tu perfil:</div>
+                        <div class="container m-2">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <label>cedula:
+                                        <input [(ngModel)]="cedula" value={{cedula}}/>
+                                    </label><br>
+                                    <label>nombre:
+                                        <input [(ngModel)]="nombre" value={{nombre}}/>
+                                    </label><br>
+                                    <label>apellido:
+                                        <input [(ngModel)]="apellido" value={{apellido}}/>
+                                    </label><br>                     
+                                    <button class="btn btn-primary mt-2" (click)="habilitarEditarPerfil()">Cancelar</button>
+                                    <button class="btn btn-primary ml-2 mt-2" (click)="editar()">Confirmar</button>
+                                </div>
+                                <div class="col-sm"> 
+                                    <button class="btn btn-warning" (click)="habilitarCambiarContrasenia()">Cambiar Contraseña</button><br><br>
+                                    <button class="btn btn-danger" (click)="eliminarUsuario()">Eliminar Cuenta</button>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+            </div>
+        
+            <div *ngIf="cambiandoContrasenia" >
+                <div class="card bg-light mb-3" >
+                    <div class="card-header h4">Cambiar Contraseña:</div>
+                    <div class="card-body m-2">
+                        <label>Actual:
+                            <input [(ngModel)]="actual" type="password" placeholder="contraseña actual"/>
+                        </label><br>
+                        <label>Nueva:
+                            <input [(ngModel)]="nueva" type="password" placeholder="contraseña nueva"/>
+                        </label><br>
+                        <label>Confirmar:
+                            <input [(ngModel)]="confirmar" type="password" placeholder="repetir nueva contraseña"/>
+                        </label><br>
+                        <button class="btn btn-primary mr-5 mt-2" (click)="habilitarCambiarContrasenia()">Cancelar</button>
+                        <button class="btn btn-primary ml-5 mt-2" (click)="cambiarContrasenia()">Confirmar</button>
+                    </div>
+                    </div> 
+            </div>
+          </div>
+          <div class="col-sm-1"></div>
+        </div>
+      </div>
+    
 </div>

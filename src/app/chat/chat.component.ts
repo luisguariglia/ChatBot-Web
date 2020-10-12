@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from '../message.service';
+import { ChatService } from '../chat.service';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class ChatComponent implements OnInit {
   mensajes= [];
 
   constructor(
-     private messageService: MessageService,
+     private messageService: ChatService,
     ) { }
 
   ngOnInit(): void {

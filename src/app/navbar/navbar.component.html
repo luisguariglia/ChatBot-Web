@@ -5,20 +5,15 @@
     </button>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
       <ul class="navbar-nav ml-auto" *ngIf="islogin()">
+          <li *ngIf="isAdmin()" class="nav-item">
+            <a class="nav-link" href="/menuadmin">Administración</a>
+          </li>
           <li class="nav-item">
               <a class="nav-link" href="/perfil">Perfil</a>
           </li>
-          <li class="nav-item">
+          <li *ngIf="islogin()" (click)="logOut()" class="nav-item">
             <a class="nav-link" href="/">Salir</a>
         </li>
       </ul>
-      <ul *ngIf="!islogin()" class="navbar-nav ml-auto" >
-        <!--<li class="nav-item">
-            <a class="nav-link" href="/perfil">Registrarse</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/">Salir</a>
-      </li>-->
-    </ul>
   </div>
   </nav>

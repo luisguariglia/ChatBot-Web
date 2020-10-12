@@ -1,11 +1,54 @@
-<h2>Lista De Usuarios</h2>
-<ul class="">
-  <li *ngFor="let usuario of usuarios">
-    <a routerLink="/detail/{{usuario.id}}">
-      <span class="">{{usuario.id}}</span> {{usuario.nombre}}
-    </a>
-  </li>
-</ul>
-<button (click)="goBack()">volver</button>
-<!--<app-detalle-usuario [usuario]="selectedUser"></app-detalle-usuario>
--->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm">
+      <div class="card bg-light mb-3" >
+          <div class="card-header h4">Lista De Usuarios</div>
+          <div class="card-body">      
+
+            <div class="container mb-2">
+              <div class="row">
+                <div class="col-sm h5">
+                  Nombre
+                </div>
+                <div class="col-sm h5">
+                  Cedula
+                </div>
+                <div class="col-sm h5">
+                  Acciones
+                </div>
+              </div>
+            </div>
+
+            
+            <ul class="">
+              <li *ngFor="let usuario of usuarios">
+                <!--<a routerLink="/detail/{{usuario.id}}">-->
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm">
+                        {{usuario.nombre}} {{usuario.apellido}}
+                      </div>
+                      <div class="col-sm">
+                        {{usuario.cedula}}
+                      </div>
+                      <div class="col-sm h5">
+                        <button class="btn btn-danger" (click)="borrarUsuario(usuario.id)">Borrar</button>
+                      </div>
+                    </div>
+                  </div>
+                <!--</a>-->
+              </li>  
+            </ul>
+            <button class="btn btn-primary" (click)="goBack()">Volver</button>
+
+
+
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>
+
+

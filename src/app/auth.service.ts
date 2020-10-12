@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
-@Injectable(/*{
+import { Router } from '@angular/router';
+@Injectable({
   providedIn: 'root'
-}*/)
+})
 export class AuthService {
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private router:Router) { }
 
 
   getActualUser(){
@@ -39,6 +41,11 @@ export class AuthService {
   loggedIn(){
     return !!localStorage.getItem("token");
   }
+  isAdmin(){
+    return this.http.post<any>('http://localhost:8080/usuario/verify', {
+      id:this.getActualUser(),
+      });
+  }
   getToken(){
     return localStorage.getItem("token");
   }
@@ -61,5 +68,9 @@ export class AuthService {
     return this.http.post<any>('http://localhost:8080/usuario/delete', {
       id:this.getActualUser(),
       });
+  }
+  logOut(){
+    localStorage.removeItem("token");
+    this.router.navigate(['/inicio']);
   }
 }
