@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from '../message.service';
+
 
 @Component({
   selector: 'app-chat',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatComponent implements OnInit {
 
-  constructor() { }
+	titulo = "ChatBot TIP";
+	descripcion = "Ingresa tu consulta para comenzar";
+  contenidoMensaje: string;
+  mensajes= [];
+
+  constructor(
+     private messageService: MessageService,
+    ) { }
 
   ngOnInit(): void {
+  }
+
+  enviarMensaje(){
+    this.messageService.add(this.contenidoMensaje)
+      .subscribe(data => {
+        this.mensajes.push({id:"u", msj:this.contenidoMensaje});
+        this.contenidoMensaje = "";
+        this.responder(data.Reply);
+      });
+  }
+
+  responder(respuesta){
+    this.mensajes.push({id:"b", msj:respuesta});
   }
 
 }
