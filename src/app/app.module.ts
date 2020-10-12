@@ -19,6 +19,9 @@ import { TokenInterceptorService} from './token-interceptor.service';
 import { AsignaturasAdminComponent } from './asignaturas-admin/asignaturas-admin.component';
 import { NuevaAsignaturaComponent } from './nueva-asignatura/nueva-asignatura.component';
 import { VerAsignaturaComponent } from './ver-asignatura/ver-asignatura.component';
+import { HorariosAsignaturasComponent } from './horarios-asignaturas/horarios-asignaturas.component';
+import { NuevoHorarioComponent } from './nuevo-horario/nuevo-horario.component';
+import { EditarHorarioComponent } from './editar-horario/editar-horario.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +32,7 @@ import { VerAsignaturaComponent } from './ver-asignatura/ver-asignatura.componen
     LoginComponent,
     RegisterComponent,
     NavbarComponent, 
-    PerfilComponent, AsignaturasAdminComponent, NuevaAsignaturaComponent, VerAsignaturaComponent
+    PerfilComponent, AsignaturasAdminComponent, NuevaAsignaturaComponent, VerAsignaturaComponent, HorariosAsignaturasComponent, NuevoHorarioComponent, EditarHorarioComponent
   ],
   imports: [
     BrowserModule,

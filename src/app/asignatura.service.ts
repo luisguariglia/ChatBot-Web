@@ -40,5 +40,33 @@ export class AsignaturaService {
       fechaInscripcion:asignatura.fechaInscripcion,
       });
   }
+  getHorario(id){
+    return this.http.post<any>('http://localhost:8080/asignaturas/detalleHorario', {
+      id:id,
+      });
+  }
+  editarHorario(horario){
+    return this.http.post<any>('http://localhost:8080/asignaturas/updateHorario', {
+      id:horario.id,
+      semestre:horario.semestre,
+      dia:horario.dia,
+      horaDesde:horario.horaDesde,
+      horaHasta:horario.horaHasta,
+      });
+  }
+  nuevoHorario(horario){
+    return this.http.post<any>('http://localhost:8080/asignaturas/nuevoHorario', {
+      semestre:horario.semestre,
+      dia:horario.dia,
+      horaDesde:horario.horaDesde,
+      horaHasta:horario.horaHasta,
+      idAsig:horario.asignatura,
+      });
+  }
+  borrarHorario(id){
+    return this.http.post<any>('http://localhost:8080/asignaturas/deleteHorario', {
+      id:id,
+      });
+  }
 
 }

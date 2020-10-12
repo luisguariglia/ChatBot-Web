@@ -29,5 +29,8 @@ export class VerAsignaturaComponent implements OnInit {
         alert(data.data);
     })
   }
+  editarHorarios(){
+    this.router.navigateByUrl('/horarios', { state: { asignatura: this.asignaturaEditar } });
+  }
 
 }

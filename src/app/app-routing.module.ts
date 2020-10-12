@@ -11,6 +11,8 @@ import { AuthGuard } from './auth.guard';
 import { AsignaturasAdminComponent } from './asignaturas-admin/asignaturas-admin.component';
 import { NuevaAsignaturaComponent } from './nueva-asignatura/nueva-asignatura.component';
 import { VerAsignaturaComponent } from './ver-asignatura/ver-asignatura.component';
+import { HorariosAsignaturasComponent } from './horarios-asignaturas/horarios-asignaturas.component';
+import { EditarHorarioComponent } from './editar-horario/editar-horario.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -24,6 +26,8 @@ const routes: Routes = [
   { path: 'asignaturasAdmin', component: AsignaturasAdminComponent},
   { path: 'nuevaAsignatura', component: NuevaAsignaturaComponent},
   { path: 'verAsignatura', component: VerAsignaturaComponent},
+  { path: 'horarios', component: HorariosAsignaturasComponent},
+  { path: 'verHorario', component: EditarHorarioComponent},
 ];
 
 @NgModule({
