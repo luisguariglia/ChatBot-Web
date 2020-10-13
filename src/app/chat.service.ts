@@ -12,7 +12,7 @@ export class ChatService {
 
   add(message: string) {
   	const headers = { 'Authorization': '*'};
-    return this.http.post<any>('http://localhost:5000/send-msg', {MSG:"hola"});
+    return this.http.post<any>('http://localhost:5000/send-msg', {MSG:message});
   }
 
   clear() {

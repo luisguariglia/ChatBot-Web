@@ -1,0 +1,89 @@
+html {
+  
+}
+.container {
+     width:100%;
+     
+  }
+  
+  /* Darker chat container */
+
+    
+  .aling{
+    height:100%;
+    width:45%;
+    float:left;
+    border: 2px solid #dedede;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  .obscuro{
+    height:100%;
+    float:right;
+    border-color: #8ab58a;
+    background-color: #b8dbb8;
+  }
+  /* Clear floats */
+  .container::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Style images */
+  .container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+  }
+  
+  /* Style the right image */
+  .container img.tu {
+    float: right;
+    margin-left: 0px;
+    margin-right:0;
+  }
+  
+  /* Style time text */
+  .time-right {
+    float: right;
+    color: #6e6e6e;
+  }
+  
+  /* Style time text */
+  .time-left {
+    float: left;
+    color: #999;
+  }
+
+  .scrolleable{
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    height:700px;
+  }
+
+ #chat{
+  background-image: url("https://previews.123rf.com/images/aldanna/aldanna1512/aldanna151200004/50116383-sin-fisuras-m%C3%B3vil-aplicaciones-patr%C3%B3n-con-la-m%C3%BAsica-el-chat-la-galer%C3%ADa-la-burbuja-de-hablar-correo-electr%C3%B3nico-lupa.jpg");
+  
+ }
+
+ .submit-component{
+  height:45px;
+ }
+
+
+ @media (max-width: 800px) {
+  .aling{
+    width: 100%;
+    float:none;
+  }
+  .obscuro{
+    float: none;
+  }
+ 
+}

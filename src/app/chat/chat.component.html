@@ -1,21 +1,46 @@
 <body class="chat">
 	<div class="chat-title">
 		<h2>{{titulo}}</h2>
-		<h3>{{descripcion}}</h3>
+		<!--<h3>{{descripcion}}</h3>-->
 	</div>
-			
-	<div class="messages">
-		<div>
-			<ul class="enviados">
-				<li *ngFor="let m of mensajes">
-					<p>{{m.msj}}</p>
-				</li>
-			</ul>
-		</div>
-    </div>
+	<div class="d-flex justify-content-center">
+		
+		<div class="col-7 card scrolleable" id="chat">
 
-    <div class="form-group">
-		<input type="text" [(ngModel)]="contenidoMensaje" name="" id="" placeholder="Escriba aquí..." class="form-control mb-2">
-		<input type="submit" name="enviar" class="btn btn-lg btn-primary btn-block" (click)="enviarMensaje()" value="Enviar">
+			<div class="messages">
+				<div>
+					<ul class="enviados">
+						<div class="container">
+							<div class="aling">
+								<p>Hola! Soy el asistente virtual del TIP ¿En que puedo ayudarte?</p>
+							</div>
+						</div>
+
+						<div *ngFor="let m of mensajes">
+							<div class="container ">
+								<div class="aling {{m.tono}}">
+									<p>{{m.msj}}</p>
+									<span class="time-right">{{m.hora}}</span>
+								</div>
+							</div>
+
+						</div>
+
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>
-  </body>
+	<div class="d-flex justify-content-center mt-3">
+		<div class="col-7">
+			<div class="form-group d-flex">
+				<input type="text" [(ngModel)]="contenidoMensaje" name="" id="entrada"
+					placeholder="Escriba aquí..." class="form-control mb-2 submit-component" (keydown.enter)="enviarMensaje()">
+				<input  type="submit" name="enviar" class=" btn btn-primary ml-2 submit-component"
+					(click)="enviarMensaje()"  value="Enviar">
+
+			</div>
+		</div>
+	</div>
+
+</body>
