@@ -29,10 +29,17 @@
                     <input formControlName="creditos" type="number"  placeholder="Insertar Creditos" class="mb-2"><br>
                     <input formControlName="programa" type="text" placeholder="Insertar Contraseña" class="mb-2"><br>
 
-                    <input formControlName="apruebaPor" type="text"  placeholder="apruebaPor" class="mb-2">  <br>   
+                    <!--<input formControlName="apruebaPor" type="text"  placeholder="apruebaPor" class="mb-2">  <br>   
+                    --><select formControlName="apruebaPor" class="mb-2">
+                      <option value="Parciales">Parciales</option>
+                      <option value="Laboratorios">Laboratorios</option>
+                      <option value="Defensas">Defensas</option>
+                      <option value="Obligatorios">Obligatorios</option>
+                      <option value="Exámen">Exámen</option>
+                    </select><br>
                     <input formControlName="nombreDocente" type="text"  placeholder="nombreDocente" class="mb-2">  <br>
                     <input formControlName="correoDocente" type="text"  placeholder="correoDocente" class="mb-2">  <br>
-                    <input formControlName="fechaIncripcion" type="text"  placeholder="fechaIncripcion" class="mb-2">  <br>
+                    <input formControlName="fechaIncripcion" type="date"  placeholder="fechaIncripcion" class="mb-2">  <br>
 
                     <br>
                     <button class=" btn btn-primary" type="submit" [disabled]="!profileForm.valid"> Guardar</button> 

@@ -54,13 +54,13 @@ export class AsignaturaService {
       horaHasta:horario.horaHasta,
       });
   }
-  nuevoHorario(horario){
+  nuevoHorario(semestre,dia,horaDesde,horaHasta,asignatura){
     return this.http.post<any>('http://localhost:8080/asignaturas/nuevoHorario', {
-      semestre:horario.semestre,
-      dia:horario.dia,
-      horaDesde:horario.horaDesde,
-      horaHasta:horario.horaHasta,
-      idAsig:horario.asignatura,
+      semestre:semestre,
+      dia:dia,
+      horaDesde:horaDesde,
+      horaHasta:horaHasta,
+      idAsig:asignatura,
       });
   }
   borrarHorario(id){

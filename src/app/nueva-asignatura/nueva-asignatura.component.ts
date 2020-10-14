@@ -48,6 +48,7 @@ export class NuevaAsignaturaComponent implements OnInit {
   }
 
   addAsig(){
+    alert(this.profileForm.value.apruebaPor);
     this.asignaturaService.nuevaAsignatura(
       this.profileForm.value.codigo,
       this.profileForm.value.nombre,
@@ -60,6 +61,7 @@ export class NuevaAsignaturaComponent implements OnInit {
       )
     .subscribe(data => {
       alert(data.data);
+      this.router.navigate(['/asignaturasAdmin']);
     }
     );
     
@@ -70,6 +72,6 @@ export class NuevaAsignaturaComponent implements OnInit {
     this.apellido:string;
     this.password:string;
     this.admin:boolean;*/
-    this.router.navigate(['/inicio']);
+    this.router.navigate(['/asignaturasAdmin']);
   }
 }

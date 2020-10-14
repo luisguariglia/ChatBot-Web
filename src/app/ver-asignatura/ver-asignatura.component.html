@@ -42,7 +42,7 @@ añadir evaluacion
                         <label>fechaIncripcion:
                             <input [(ngModel)]="asignaturaEditar.fechaInscripcion" value={{asignaturaEditar.fechaInscripcion}}/>
                         </label><br>
-                        <button class="btn btn-primary mt-2" >Cancelar</button>
+                        <button class="btn btn-primary mt-2" (click)="volver()">Volver</button>
                         <button class="btn btn-primary ml-2 mt-2" (click)="editarAsignatura()">Confirmar</button>
                     </div>
                     <div class="col-sm"> 
