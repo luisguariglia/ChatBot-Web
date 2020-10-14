@@ -27,7 +27,7 @@ export class AsignaturasAdminComponent implements OnInit {
     });
   }
   goBack(): void {
-    this.location.back();
+    this.router.navigateByUrl('/menuadmin');
   }
   editarSelect(asignatura){
     this.router.navigateByUrl('/verAsignatura', { state: { asignatura: asignatura } });

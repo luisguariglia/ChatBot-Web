@@ -1,1 +1,44 @@
-<p>nuevo-horario works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm">
+        <div class="card mt-4">
+          <div class="card-body">
+            <div class="card-title h3">
+              Agregar Horario            
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-3">semestre: </p>
+                  <p class="mb-3">dia: </p>
+                  <p class="mb-3">horaDesde: </p>
+                  <p class="mb-3">horaHasta:  </p>
+
+                  <button class="mt-2 btn btn-primary" (click)="cancelar()" > Cancelar</button> 
+                </div>               
+                <div class="col-sm">
+                    <form [formGroup]="profileForm" (ngSubmit)="addHorario()" class="mt-1">
+                    <input formControlName="semestre"  type="number"   placeholder="Insertar semestre" class="mb-2"><br>
+                    <input formControlName="dia"  type="text"placeholder="Insertar dia" class="mb-2"><br>
+                    <input formControlName="horaDesde" type="text"  placeholder="Insertar horaDesde" class="mb-2"><br>
+                    <input formControlName="horaHasta" type="text" placeholder="Insertar horaHasta" class="mb-2"><br> 
+        
+                    <br>
+                    <button class=" btn btn-primary" type="submit" [disabled]="!profileForm.valid"> Guardar</button> 
+                  </form>
+                </div>
+              </div>
+            </div>
+            
+            
+  
+          </div>
+      </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+  </div>
+  
+  
+  

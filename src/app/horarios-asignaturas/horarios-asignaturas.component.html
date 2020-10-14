@@ -6,7 +6,8 @@
         <div class="card bg-light mb-3">
             <div class="card-header h4">Horarios de {{asignatura.nombre}}</div>
             <div class="card-body">
-              <button class="btn btn-primary mb-2" >Nuevo</button>
+              <button class="btn btn-primary mb-2 mr-2" (click)="volver()">Volver</button>
+              <button class="btn btn-primary mb-2" (click)="nuevoHorario()">Nuevo</button>       
               <div class="container mb-2">
                 <div class="row">
                   <div class="col-sm h5">
@@ -24,7 +25,7 @@
                 </div>
               </div>
 
-              <div *ngFor="let horario of horarios">
+              <div *ngFor="let horario of horarios; index as i">
                   
                   <div class="container">
                     <div class="row">
@@ -39,7 +40,7 @@
                       </div>
                       <div class="col-sm h5">
                         <button class="btn btn-primary mr-3" (click)="editarHorario(horario)">Editar</button>
-                        <button class="btn btn-danger" (click)="eliminarComentario()">Borrar</button>
+                        <button class="btn btn-danger" (click)="eliminarHorario(horario.id,i)">Borrar</button>
                       </div>
                     </div>
                   </div>

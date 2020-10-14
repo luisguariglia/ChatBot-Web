@@ -22,7 +22,7 @@
                         <label>Hora hasta:
                             <input [(ngModel)]="horarioEditar.horaHasta" value={{horarioEditar.horaHasta}}/>
                         </label><br>
-                        <button class="btn btn-primary mt-2" >Cancelar</button>
+                        <button class="btn btn-primary mt-2" (click)="cancelar()">Cancelar</button>
                         <button class="btn btn-primary ml-2 mt-2" (click)="editarHorario()">Confirmar</button>
                     </div>
                 </div>

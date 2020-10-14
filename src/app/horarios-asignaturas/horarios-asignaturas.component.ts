@@ -35,11 +35,26 @@ export class HorariosAsignaturasComponent implements OnInit {
 
     }
   }
-  eliminarComentario(){
-    alert("borrar")
+  eliminarHorario(id,i){
+    if(confirm("Estas seguro que desea eliminar la cuenta? esta accion es permantente")){
+      this.asignaturaService.borrarHorario(id).subscribe(data => {
+        alert(data.data);
+        if(data.data=="Horario eliminado con exito"){
+          if (i !== -1) {
+              this.horarios.splice(i, 1);
+          }   
+        }
+      })
+    }
   }
   editarHorario(horario){
     this.router.navigateByUrl('/verHorario', { state: { horario: horario } });
+  }
+  nuevoHorario(){
+    this.router.navigateByUrl('/nuevoHorario', { state: { asignatura: this.asignatura } });
+  }
+  volver(){
+    this.router.navigateByUrl('/verAsignatura', { state: { asignatura: this.asignatura } });
   }
 
 }
