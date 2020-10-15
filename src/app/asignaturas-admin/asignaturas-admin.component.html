@@ -1,57 +1,40 @@
-<div class="container">
+<div class="container mt-5">
     <div class="row">
       <div class="col-sm-1"></div>
       <div class="col-sm">
         <div class="card bg-light mb-3" >
-            <div class="card-header h4">Menu Asignaturas</div>
+            <div class="card-header h4">Asignaturas</div>
             <div class="card-body">      
               <button class="btn btn-primary mr-2" (click)="goBack()">Volver</button>
               <a class="btn btn-primary" routerLink="/nuevaAsignatura">Nueva</a>
             </div>
 
-          <div class="card-header h4">Lista De Asignaturas</div>
           <div class="card-body">      
+          <table class="table table-responsive-xl">
+              <thead >
+                <tr>
+                  <th scope="col">Código</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Correo del docente</th>
+                  
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let asignatura of asignaturas">
+                  
+                  <td>{{asignatura.codigo}}</td>
+                  <td>{{asignatura.nombre}}</td>
+                  <td>{{asignatura.correoDoc}}</td>
 
-            <div class="container mb-2">
-              <div class="row">
-                <div class="col-sm h5">
-                  Codigo
-                </div>
-                <div class="col-sm h5">
-                  Nombre
-                </div>
-                <div class="col-sm h5">
-                  CorreoDocente
-                </div>
-                <div class="col-sm h5">
-                  Acciones
-                </div>
-              </div>
-            </div>
-
+                  <td>
+                    <button class="btn btn-primary mr-3" (click)="editarHorarios(asignatura)">Horarios</button>
+                    <button class="btn btn-warning mr-3" (click)="editarSelect(asignatura)">Editar</button>
+                <button class="btn btn-danger">Borrar</button></td>
+                </tr>
+              </tbody>
+              </table>
             
-
-              <div *ngFor="let asignatura of asignaturas">
-                <!--<a routerLink="/detail/{{usuario.id}}">-->
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-sm">
-                        {{asignatura.codigo}}
-                      </div>
-                      <div class="col-sm">
-                        {{asignatura.nombre}}
-                      </div>
-                      <div class="col-sm">
-                        {{asignatura.correoDoc}}
-                      </div>
-                      <div class="col-sm h5">
-                        <button class="btn btn-primary mr-3" (click)="editarSelect(asignatura)">Editar</button>
-                        <button class="btn btn-danger">Borrar</button>
-                      </div>
-                    </div>
-                  </div>
-                <!--</a>-->
-                </div>  
 
         </div>
       </div>

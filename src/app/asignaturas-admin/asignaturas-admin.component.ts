@@ -32,4 +32,8 @@ export class AsignaturasAdminComponent implements OnInit {
   editarSelect(asignatura){
     this.router.navigateByUrl('/verAsignatura', { state: { asignatura: asignatura } });
   }
+
+  editarHorarios(asignatura){
+    this.router.navigateByUrl('/horarios', { state: { asignatura: asignatura } });
+  }
 }

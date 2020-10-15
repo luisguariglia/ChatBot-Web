@@ -5,55 +5,50 @@ boton horario
 añadir evaluacion
     
 -->
-<div class="container">
+<div class="container mt-5">
     <div class="row">
-      <div class="col-sm-1">
-      </div>
+      
       <div class="col-sm">
         <div class="card bg-light mb-3">
             <div class="card-header h4">Editar Adignatura</div>
             <div class="card-body">
-              <h5 class="card-title">{{asignatura.nombre}}</h5>
-              <div class="container m-2">
-                <div class="row">
-                    <div class="col-sm">
-
-                        <label>codigo:
-                            <input [(ngModel)]="asignaturaEditar.codigo" value={{asignaturaEditar.codigo}}/>
-                        </label><br>
-                        <label>nombre:
-                            <input [(ngModel)]="asignaturaEditar.nombre" value={{asignaturaEditar.nombre}}/>
-                        </label><br>
-                        <label>creditos:
-                            <input [(ngModel)]="asignaturaEditar.creditos" value={{asignaturaEditar.creditos}}/>
-                        </label><br>
-                        <label>programa:
-                            <input [(ngModel)]="asignaturaEditar.programa" value={{asignaturaEditar.programa}}/>
-                        </label><br>
-                        <label>apruebaPor:
-                            <input [(ngModel)]="asignaturaEditar.apruebaPor" value={{asignaturaEditar.apruebaPor}}/>
-                        </label><br>
-                        <label>nombreDocente:
-                            <input [(ngModel)]="asignaturaEditar.nombreDoc" value={{asignaturaEditar.nombreDoc}}/>
-                        </label><br>
-                        <label>correoDocente:
-                            <input [(ngModel)]="asignaturaEditar.correoDoc" value={{asignaturaEditar.correoDoc}}/>
-                        </label><br>
-                        <label>fechaIncripcion:
-                            <input [(ngModel)]="asignaturaEditar.fechaInscripcion" value={{asignaturaEditar.fechaInscripcion}}/>
-                        </label><br>
-                        <button class="btn btn-primary mt-2" (click)="volver()">Volver</button>
-                        <button class="btn btn-primary ml-2 mt-2" (click)="editarAsignatura()">Confirmar</button>
-                    </div>
-                    <div class="col-sm"> 
-                        <button class="btn btn-primary" (click)="editarHorarios()">Horarios</button><br><br>
-                        <!--<button class="btn btn-danger">Eliminar Cuenta</button>-->
-                    </div>
-                </div>
+              <div class="card-title h3">{{asignatura.nombre}}
             </div>
+              <div class="container">
+                <div class="d-flex justify-content-center">
+                    <form>
+
+                        <label>Código:</label>
+                            <input formControlName="codigo" type="text" [(ngModel)]="asignaturaEditar.codigo" class=" mb-2 form-control" value={{asignaturaEditar.codigo}}/>
+
+                        <label>Nombre:</label>
+                            <input formControlName="nombre" type="text" [(ngModel)]="asignaturaEditar.nombre" class="mb-2 form-control" value={{asignaturaEditar.nombre}}/>
+                 
+                        <label>Creditos:</label>
+                            <input formControlName="creditos" [(ngModel)]="asignaturaEditar.creditos"  class="mb-2 form-control" value={{asignaturaEditar.creditos}}/>             
+                        <!--<label>programa:
+                            <input [(ngModel)]="asignaturaEditar.programa" value={{asignaturaEditar.programa}}/>
+                        </label><br>-->
+                        <label>Se aprueba por:</label>
+                            <input  formControlName="apruebaPor" type="text" [(ngModel)]="asignaturaEditar.apruebaPor" class="mb-2 form-control" value={{asignaturaEditar.apruebaPor}}/>
+                         
+                            <label>Nombre del docente a cargo </label>
+                            <input formControlName="nombreDocente" type="text" [(ngModel)]="asignaturaEditar.nombreDoc" class="mb-2 form-control" value={{asignaturaEditar.nombreDoc}}/>
+                        
+                            <label>Correo del docente </label>
+                            <input type="text" formControlName="correoDocente" [(ngModel)]="asignaturaEditar.correoDoc" class="mb-2 form-control" value={{asignaturaEditar.correoDoc}}/>
+                        
+                            <label>Fecha limite de inscripción </label>
+                            <input  formControlName="fechaIncripcion" [(ngModel)]="asignaturaEditar.fechaInscripcion" class="mb-2 form-control" value={{asignaturaEditar.fechaInscripcion}}/>
+                            <div class="form-group">
+                        <button class="btn btn-primary mt-2 float-left" (click)="volver()">Volver</button>
+                        <button class="btn btn-primary ml-2 mt-2 float-right" (click)="editarAsignatura()">Confirmar</button>
+                        </div>
+                </form>
+                </div>
+                </div>
             </div>
           </div>
       </div>
-      <div class="col-sm-1">
-      </div>
   </div>
+  

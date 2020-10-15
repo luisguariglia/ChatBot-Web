@@ -2,18 +2,22 @@
 
 
 <div>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
           <div class="col-sm-1"></div>
           <div class="col-sm">
             <div *ngIf="!editandoPerfil&&!cambiandoContrasenia" >
                 <div class="card bg-light mb-3" >
-                    <div class="card-header h4">{{nombre}} {{apellido}}
-                        <button class="btn btn-primary float-right" (click)="habilitarEditarPerfil()">Editar Perfil</button><br>
+                    <div class="card-header h4">Datos Personales
+                        <button class="btn btn-danger float-right mr-2" (click)="eliminarUsuario()">Eliminar Cuenta </button>
+                        <button class="btn btn-warning float-right mr-2" (click)="habilitarCambiarContrasenia()">Cambiar Contraseña</button>
+                        <button class="btn btn-primary float-right mr-2" (click)="habilitarEditarPerfil()">Editar Perfil</button>
                     </div>
+                    
                     <div class="card-body">
-                      <p class="card-text h6">Datos Personales</p>
-                      <p class="card-text">Cedula: {{cedula}}</p>
+                      <p class="card-text">Cédula: {{cedula}}</p>
+                      <p class="card-text">Nombre: {{nombre}}</p>
+                      <p class="card-text">Apellido: {{apellido}}</p>
                     </div>
                   </div>
             </div>
@@ -21,47 +25,57 @@
             <div *ngIf="editandoPerfil" >
                 <div class="card bg-light mb-3" >
                     <div class="card-header h4">Edita tu perfil:</div>
+                    
                         <div class="container m-2">
-                            <div class="row">
-                                <div class="col-sm">
-                                    <label>cedula:
-                                        <input [(ngModel)]="cedula" value={{cedula}}/>
+                            <div class="d-flex justify-content-center">
+                                
+                                <div class="col-5">
+                                    <div class="form-group">
+                                    <label>Cédula:
+                                        <input  class="form-control" [(ngModel)]="cedula" value={{cedula}}/>
+                                    </label>
+                                    </div>
+                                    <div class="form-group">
+                                    <label>Nombre:
+                                        <input class="form-control" [(ngModel)]="nombre" value={{nombre}}/>
+                                    </label></div>
+                                    <div class="form-group">
+
+                                    <label>Apellido:
+                                        <input class="form-control" [(ngModel)]="apellido" value={{apellido}}/>
                                     </label><br>
-                                    <label>nombre:
-                                        <input [(ngModel)]="nombre" value={{nombre}}/>
-                                    </label><br>
-                                    <label>apellido:
-                                        <input [(ngModel)]="apellido" value={{apellido}}/>
-                                    </label><br>                     
+                                </div>  
+                               
                                     <button class="btn btn-primary mt-2" (click)="habilitarEditarPerfil()">Cancelar</button>
                                     <button class="btn btn-primary ml-2 mt-2" (click)="editar()">Confirmar</button>
-                                </div>
-                                <div class="col-sm"> 
-                                    <button class="btn btn-warning" (click)="habilitarCambiarContrasenia()">Cambiar Contraseña</button><br><br>
-                                    <button class="btn btn-danger" (click)="eliminarUsuario()">Eliminar Cuenta</button>
-                                </div>
+
+                               
                             </div>
+                        </div>
+                            
                         </div>  
                     </div>
             </div>
         
             <div *ngIf="cambiandoContrasenia" >
+                <div class="d-flex justify-content-center">
                 <div class="card bg-light mb-3" >
                     <div class="card-header h4">Cambiar Contraseña:</div>
                     <div class="card-body m-2">
                         <label>Actual:
-                            <input [(ngModel)]="actual" type="password" placeholder="contraseña actual"/>
+                            <input [(ngModel)]="actual" type="password" placeholder="contraseña actual" class="form-control"/>
                         </label><br>
                         <label>Nueva:
-                            <input [(ngModel)]="nueva" type="password" placeholder="contraseña nueva"/>
+                            <input [(ngModel)]="nueva" type="password" placeholder="contraseña nueva" class="form-control"/>
                         </label><br>
                         <label>Confirmar:
-                            <input [(ngModel)]="confirmar" type="password" placeholder="repetir nueva contraseña"/>
+                            <input [(ngModel)]="confirmar" type="password" placeholder="repetir nueva contraseña" class="form-control"/>
                         </label><br>
                         <button class="btn btn-primary mr-5 mt-2" (click)="habilitarCambiarContrasenia()">Cancelar</button>
                         <button class="btn btn-primary ml-5 mt-2" (click)="cambiarContrasenia()">Confirmar</button>
                     </div>
                     </div> 
+                </div> 
             </div>
           </div>
           <div class="col-sm-1"></div>

@@ -22,6 +22,7 @@ import { VerAsignaturaComponent } from './ver-asignatura/ver-asignatura.componen
 import { HorariosAsignaturasComponent } from './horarios-asignaturas/horarios-asignaturas.component';
 import { NuevoHorarioComponent } from './nuevo-horario/nuevo-horario.component';
 import { EditarHorarioComponent } from './editar-horario/editar-horario.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { EditarHorarioComponent } from './editar-horario/editar-horario.componen
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [AuthService,AuthGuard,
   {

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
     <div class="row">
       <div class="col-sm-1">
       </div>
@@ -9,41 +9,30 @@
               <button class="btn btn-primary mb-2 mr-2" (click)="volver()">Volver</button>
               <button class="btn btn-primary mb-2" (click)="nuevoHorario()">Nuevo</button>       
               <div class="container mb-2">
-                <div class="row">
-                  <div class="col-sm h5">
-                    Dia
-                  </div>
-                  <div class="col-sm h5">
-                    Desde
-                  </div>
-                  <div class="col-sm h5">
-                    Hasta
-                  </div>
-                  <div class="col-sm h5">
-                    Acciones
-                  </div>
-                </div>
-              </div>
-
-              <div *ngFor="let horario of horarios; index as i">
+            
+              <table class="table table-responsive-xl">
+                <thead >
+                  <tr>
+                    <th scope="col">Dia</th>
+                    <th scope="col">Desde</th>
+                    <th scope="col">Hasta</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let horario of horarios; index as i">
+                    
+                    <td>{{horario.dia}}</td>
+                    <td> {{horario.horaDesde}}</td>
+                    <td> {{horario.horaHasta}}</td>
+                    <td><button class="btn btn-warning mr-3" (click)="editarHorario(horario)">Editar</button>
+                      <button class="btn btn-danger" (click)="eliminarHorario(horario.id,i)">Borrar</button></td>
+                  </tr>
+                </tbody>
+                </table>
+              <div>
                   
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-sm">
-                        {{horario.dia}}
-                      </div>
-                      <div class="col-sm">
-                        {{horario.horaDesde}}
-                      </div>
-                      <div class="col-sm">
-                        {{horario.horaHasta}}
-                      </div>
-                      <div class="col-sm h5">
-                        <button class="btn btn-primary mr-3" (click)="editarHorario(horario)">Editar</button>
-                        <button class="btn btn-danger" (click)="eliminarHorario(horario.id,i)">Borrar</button>
-                      </div>
-                    </div>
-                  </div>
+                 
                 </div> 
             </div>
             </div>
