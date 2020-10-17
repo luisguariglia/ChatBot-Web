@@ -76,7 +76,7 @@ profileForm = new FormGroup({
   }
   habilitarCambiarContrasenia(){
     this.cambiandoContrasenia=!this.cambiandoContrasenia;
-    this.editandoPerfil=!this.cambiandoContrasenia;
+    //this.editandoPerfil=!this.cambiandoContrasenia;
   }
   habilitarEditarPerfil(){
     this.obtenerDatos();

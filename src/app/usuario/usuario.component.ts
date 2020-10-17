@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario';
 import { UsuarioService } from '../usuario.service';
 import { Location } from '@angular/common';
+import {AuthService} from '../auth.service';
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-usuario',
@@ -14,7 +15,8 @@ export class UsuarioComponent implements OnInit {
 
   constructor(private usuarioSevice: UsuarioService,
      private route: ActivatedRoute,
-     private location: Location) {}
+     private location: Location,
+     private authService:AuthService) {}
      
 
   ngOnInit() {
@@ -39,6 +41,10 @@ export class UsuarioComponent implements OnInit {
       this.usuarioSevice.borrarUsuario(id).subscribe(data => {
         alert(data.data);
       })
+      if(id==this.authService.getActualUser()){
+        alert("Elimino su propia cuenta, volviendo al menu proncipal");
+        this.authService.logOut();
+      }
     }
   }
 }

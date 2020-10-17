@@ -12,6 +12,7 @@ import { FormGroup,FormControl,FormBuilder,Validators} from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  contraseniaDiferente:boolean;
   //repassword
  profileForm = new FormGroup({
   cedula: new FormControl('',[
@@ -45,6 +46,7 @@ export class RegisterComponent implements OnInit {
   }
 
   addUser(){
+    if(this.profileForm.value.password==this.profileForm.value.repassword){
     this.auth.registerUser(this.profileForm.value.cedula,
       this.profileForm.value.nombre,
       this.profileForm.value.apellido,
@@ -53,7 +55,7 @@ export class RegisterComponent implements OnInit {
     .subscribe(data => {
       alert(data.data);
       if(data.data=="Usuario agregado con éxito"){
-        
+        this.contraseniaDiferente=false;
         this.auth.loginUser(this.profileForm.value.cedula,this.profileForm.value.password)
         .subscribe(data => {
           if(data.ok){
@@ -66,6 +68,9 @@ export class RegisterComponent implements OnInit {
       }
     }
     );
+  }else{
+    this.contraseniaDiferente=true;
+  }
     
   }
   cancelar(){
