@@ -9,10 +9,13 @@
       <input type="password" class="form-control" formControlName="password" placeholder="Contraseña">
     </div>
     <div class="form-group text-center">
-
+      <div *ngIf="datosMal">
+        <p class="text-danger">Constraseña o cedula incorrecta</p>
+      </div>
     <button class="btn btn-lg btn-primary" type="submit" [disabled]="!profileForm.valid">Ingresar</button>
   </div>
-
+  
   </form>
+  
 
 </body>

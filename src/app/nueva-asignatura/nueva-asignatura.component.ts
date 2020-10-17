@@ -48,7 +48,7 @@ export class NuevaAsignaturaComponent implements OnInit {
   }
 
   addAsig(){
-    alert(this.profileForm.value.apruebaPor);
+    //alert(this.profileForm.value.apruebaPor);
     this.asignaturaService.nuevaAsignatura(
       this.profileForm.value.codigo,
       this.profileForm.value.nombre,

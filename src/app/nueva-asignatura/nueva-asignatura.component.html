@@ -40,7 +40,7 @@
                   <input formControlName="fechaIncripcion" type="date" placeholder="Fecha de inscripcion"
                     class="mb-2 form-control">
                   <div class="form-group">
-                    <button class="btn btn-primary float-left" (click)="cancelar()"> Cancelar</button>
+                    <button type="button" class="btn btn-primary float-left" (click)="cancelar()"> Cancelar</button>
                     <button class=" btn btn-primary float-right" type="submit" [disabled]="!profileForm.valid">
                       Guardar</button>
                   </div>

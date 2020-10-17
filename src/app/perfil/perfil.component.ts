@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
+import { FormGroup,FormControl,FormBuilder,Validators} from '@angular/forms';
+
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
@@ -14,20 +16,46 @@ export class PerfilComponent implements OnInit {
 
   cambiandoContrasenia:boolean;
   editandoPerfil:boolean;
+
   //contraseña
   actual:string;
   nueva:string;
   confirmar:string;
+  noCoinciden:boolean;
 
-
+profileForm = new FormGroup({
+    cedula: new FormControl('',[
+    Validators.required,
+    Validators.minLength(8)
+    ]),
+    nombre: new FormControl('',
+    Validators.required
+    ),
+    apellido: new FormControl('',
+    Validators.required
+    ),
+  });
+  passwdForm = new FormGroup({
+    actual: new FormControl('',[
+    Validators.required,
+    ]),
+    nueva: new FormControl('',
+    Validators.required
+    ),
+    confirmar: new FormControl('',
+    Validators.required
+    ),
+  });
   constructor(private authService:AuthService) { 
     this.cambiandoContrasenia=false;
+    this.obtenerDatos();
   }
 
   ngOnInit(): void {
     this.editando=false;
     this.id=this.authService.getActualUser();
     this.obtenerDatos();
+    this.noCoinciden=false;
   }
   obtenerDatos(){
     this.authService.getUser().subscribe(data => {
@@ -37,7 +65,7 @@ export class PerfilComponent implements OnInit {
     })
   }
   editar(){
-    this.authService.updateUser(this.cedula,this.nombre,this.apellido).subscribe(data => {
+    this.authService.updateUser(this.profileForm.value.cedula,this.profileForm.value.nombre,this.profileForm.value.apellido).subscribe(data => {
       if(data.data=="Usuario modificado con exito"){
         this.habilitarEditarPerfil();
         alert("Usuario modificado con exito");      
@@ -55,10 +83,15 @@ export class PerfilComponent implements OnInit {
     this.editandoPerfil=!this.editandoPerfil;
   }
   cambiarContrasenia(){
-    this.authService.updateContrasenia(this.actual,this.nueva).subscribe(data => {
+    if(this.profileForm.value.nueva==this.profileForm.value.confirmar){
+    this.authService.updateContrasenia(this.profileForm.value.actual,this.profileForm.value.nueva).subscribe(data => {
       alert(data.data);
     })
     this.cambiandoContrasenia=false;
+    this.noCoinciden=false;
+    }else{
+      this.noCoinciden=true;
+    }
   }
   eliminarUsuario(){
     if(confirm("Estas seguro que desea eliminar la cuenta? esta accion es permantente")){

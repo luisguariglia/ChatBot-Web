@@ -12,6 +12,7 @@ import { FormGroup,FormControl,FormBuilder,Validators} from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  datosMal:boolean;
   profileForm = new FormGroup({
     cedula: new FormControl('',[
     Validators.required//,
@@ -24,7 +25,9 @@ export class LoginComponent implements OnInit {
   constructor(private http: HttpClient,
     private router: Router,
     private auth: AuthService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder) {
+      this.datosMal=false;
+     }
 
   ngOnInit(): void {
   }
@@ -37,6 +40,8 @@ export class LoginComponent implements OnInit {
         this.auth.setActualUser(data.usuario.id);
         localStorage.setItem("token",data.token);
         this.router.navigate(['/chat']);      
+      }else{
+        this.datosMal=true;
       }
     }
     ); 

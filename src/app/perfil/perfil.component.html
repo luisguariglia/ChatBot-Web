@@ -30,27 +30,30 @@
                             <div class="d-flex justify-content-center">
                                 
                                 <div class="col-5">
-                                    <div class="form-group">
-                                    <label>Cédula:
-                                        <input  class="form-control" [(ngModel)]="cedula" value={{cedula}}/>
-                                    </label>
-                                    </div>
-                                    <div class="form-group">
-                                    <label>Nombre:
-                                        <input class="form-control" [(ngModel)]="nombre" value={{nombre}}/>
-                                    </label></div>
-                                    <div class="form-group">
+                                    <form [formGroup]="profileForm" (ngSubmit)="editar()" class="mt-1">
+                                        <div class="form-group">
+                                        <label>Cédula:
+                                            <!--<input  class="form-control" [(ngModel)]="cedula" value={{cedula}}/>-->
+                                            <input type="number" class="form-control" formControlName="cedula" placeholder={{cedula}}>
+                                        </label>
+                                        </div>
+                                        <div class="form-group">
+                                        <label>Nombre:
+                                            <input type="text" class="form-control" formControlName="nombre" placeholder={{nombre}}>
+                                        </label></div>
+                                        <div class="form-group">
 
-                                    <label>Apellido:
-                                        <input class="form-control" [(ngModel)]="apellido" value={{apellido}}/>
-                                    </label><br>
-                                </div>  
-                               
+                                        <label>Apellido:
+                                            <input type="text" class="form-control" formControlName="apellido" placeholder={{apellido}}>
+                                        </label><br>
+                                        
+                                        </div>  
+                                    
                                     <button class="btn btn-primary mt-2" (click)="habilitarEditarPerfil()">Cancelar</button>
-                                    <button class="btn btn-primary ml-2 mt-2" (click)="editar()">Confirmar</button>
-
+                                    <button class="btn btn-primary ml-2 mt-2" type="submit" [disabled]="!profileForm.valid">Confirmar</button>
+                                    </form>
                                
-                            </div>
+                                 </div>
                         </div>
                             
                         </div>  
@@ -61,19 +64,24 @@
                 <div class="d-flex justify-content-center">
                 <div class="card bg-light mb-3" >
                     <div class="card-header h4">Cambiar Contraseña:</div>
-                    <div class="card-body m-2">
-                        <label>Actual:
-                            <input [(ngModel)]="actual" type="password" placeholder="contraseña actual" class="form-control"/>
-                        </label><br>
-                        <label>Nueva:
-                            <input [(ngModel)]="nueva" type="password" placeholder="contraseña nueva" class="form-control"/>
-                        </label><br>
-                        <label>Confirmar:
-                            <input [(ngModel)]="confirmar" type="password" placeholder="repetir nueva contraseña" class="form-control"/>
-                        </label><br>
-                        <button class="btn btn-primary mr-5 mt-2" (click)="habilitarCambiarContrasenia()">Cancelar</button>
-                        <button class="btn btn-primary ml-5 mt-2" (click)="cambiarContrasenia()">Confirmar</button>
-                    </div>
+                    <form [formGroup]="passwdForm" (ngSubmit)="cambiarContrasenia()" class="mt-1">
+                        <div class="card-body m-2">
+                            <label>Actual:
+                                <input type="password" class="form-control" formControlName="actual" placeholder="contraseña actual">
+                            </label><br>
+                            <label>Nueva:
+                                <input type="password" class="form-control" formControlName="nueva" placeholder="contraseña nueva">
+                            </label><br>
+                            <label>Confirmar:
+                                <input type="password" class="form-control" formControlName="confirmar" placeholder="repetir contraseña nueva">
+                            </label><br>
+                            <div *ngIf="noCoinciden" >
+                                <p class="text-danger">Las contraseñas no coinciden</p>
+                            </div>
+                            <button class="btn btn-primary mr-5 mt-2" (click)="habilitarCambiarContrasenia()">Cancelar</button>
+                            <button class="btn btn-primary ml-2 mt-2" type="submit" [disabled]="!passwdForm.valid">Confirmar</button>
+                        </div>
+                    </form>
                     </div> 
                 </div> 
             </div>

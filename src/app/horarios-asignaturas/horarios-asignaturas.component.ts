@@ -54,7 +54,7 @@ export class HorariosAsignaturasComponent implements OnInit {
     this.router.navigateByUrl('/nuevoHorario', { state: { asignatura: this.asignatura } });
   }
   volver(){
-    this.router.navigateByUrl('/verAsignatura', { state: { asignatura: this.asignatura } });
+    this.router.navigateByUrl('/asignaturasAdmin', { state: { asignatura: this.asignatura } });
   }
 
 }

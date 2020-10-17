@@ -6,8 +6,8 @@
         <div class="card bg-light mb-3">
             <div class="card-header h4">Horarios de {{asignatura.nombre}}</div>
             <div class="card-body">
-              <button class="btn btn-primary mb-2 mr-2" (click)="volver()">Volver</button>
-              <button class="btn btn-primary mb-2" (click)="nuevoHorario()">Nuevo</button>       
+              <button type="button" class="btn btn-primary mb-2 mr-2" (click)="volver()">Volver</button>
+              <button type="button" class="btn btn-primary mb-2" (click)="nuevoHorario()">Nuevo</button>       
               <div class="container mb-2">
             
               <table class="table table-responsive-xl">
@@ -25,8 +25,8 @@
                     <td>{{horario.dia}}</td>
                     <td> {{horario.horaDesde}}</td>
                     <td> {{horario.horaHasta}}</td>
-                    <td><button class="btn btn-warning mr-3" (click)="editarHorario(horario)">Editar</button>
-                      <button class="btn btn-danger" (click)="eliminarHorario(horario.id,i)">Borrar</button></td>
+                    <td><button type="button" class="btn btn-warning mr-3" (click)="editarHorario(horario)">Editar</button>
+                      <button type="button" class="btn btn-danger" (click)="eliminarHorario(horario.id,i)">Borrar</button></td>
                   </tr>
                 </tbody>
                 </table>
