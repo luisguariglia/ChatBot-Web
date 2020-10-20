@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { variablesGlobales } from "./variablesGlobales";
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  userActual:string = 'prueba';
+  //userActual:string = 'prueba';
 
   constructor(private http: HttpClient,
     private router:Router) { 
@@ -15,8 +17,7 @@ export class AuthService {
 
 
   getActualUser(){
-    //return this.userActual;
-    
+    //return variablesGlobales.getActualUser();
     return localStorage.getItem("actualUser");
   }
   setActualUser(id:string){ 

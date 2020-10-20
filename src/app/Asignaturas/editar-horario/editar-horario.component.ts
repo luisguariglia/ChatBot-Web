@@ -7,7 +7,8 @@ import {Router} from '@angular/router';
 import { Horario } from '../../Clases/horario';
 import { FormGroup,FormControl,FormBuilder,Validators} from '@angular/forms';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-
+import { ToastrService } from 'ngx-toastr';
+ 
 @Component({
   selector: 'app-editar-horario',
   templateUrl: './editar-horario.component.html',
@@ -33,7 +34,8 @@ export class EditarHorarioComponent implements OnInit {
   });
   constructor(private router:Router,
     private asignaturaService:AsignaturaService,
-    private _location: Location) {
+    private _location: Location,
+    private toastr: ToastrService) {
 
     const navigation = this.router.getCurrentNavigation();
     this.horario= navigation.extras.state.horario;
@@ -53,7 +55,7 @@ export class EditarHorarioComponent implements OnInit {
 
     this.asignaturaService.editarHorario(this.horarioEditar)
     .subscribe(data =>{
-     alert(data.data);
+      this.toastr.success(data.data);
     });
     this._location.back();
     

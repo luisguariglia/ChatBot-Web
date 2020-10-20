@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {Router} from '@angular/router';
 import {AuthService} from '../../Services/auth.service';
 import { FormGroup,FormControl,FormBuilder,Validators} from '@angular/forms';
+import { variablesGlobales } from "../../Services/variablesGlobales";
 
 @Component({
   selector: 'app-login',
@@ -37,9 +38,10 @@ export class LoginComponent implements OnInit {
     .subscribe(data => {
       if(data.ok){
         //alert(data.usuario.id);
-        this.auth.setActualUser(data.usuario.id);
+        //variablesGlobales.setActualUser(data.usuario.id);
         //this.auth.setActualUser("aloja");
-        //alert(this.auth.getActualUser());
+        
+        this.auth.setActualUser(data.usuario.id);
         localStorage.setItem("token",data.token);
         this.router.navigate(['/chat']);      
       }else{

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../Services/auth.service';
 import { FormGroup,FormControl,FormBuilder,Validators} from '@angular/forms';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
@@ -46,9 +46,8 @@ profileForm = new FormGroup({
     Validators.required
     ),
   });
-  constructor(private authService:AuthService) { 
+  constructor(private authService:AuthService,private toastr: ToastrService) { 
     this.cambiandoContrasenia=false;
-    //alert(this.authService.getActualUser());
     this.id=this.authService.getActualUser();
     this.obtenerDatos();
     
@@ -59,6 +58,7 @@ profileForm = new FormGroup({
     this.id=this.authService.getActualUser();
     this.obtenerDatos();
     this.noCoinciden=false;
+    
   }
   obtenerDatos(){
     this.authService.getUser().subscribe(data => {
@@ -71,9 +71,9 @@ profileForm = new FormGroup({
     this.authService.updateUser(this.profileForm.value.cedula,this.profileForm.value.nombre,this.profileForm.value.apellido).subscribe(data => {
       if(data.data=="Usuario modificado con exito"){
         this.habilitarEditarPerfil();
-        alert("Usuario modificado con exito");      
+        this.toastr.success(data.data);    
       }else{
-        alert(data.data);
+        this.toastr.success(data.data);
       }
     })
   }
@@ -86,20 +86,21 @@ profileForm = new FormGroup({
     this.editandoPerfil=!this.editandoPerfil;
   }
   cambiarContrasenia(){
-    if(this.profileForm.value.nueva==this.profileForm.value.confirmar){
+    this.toastr.success("hola");
+    //if(this.profileForm.value.nueva==this.profileForm.value.confirmar){
     this.authService.updateContrasenia(this.profileForm.value.actual,this.profileForm.value.nueva).subscribe(data => {
-      alert(data.data);
+      this.toastr.success(data.data);
     })
-    this.cambiandoContrasenia=false;
-    this.noCoinciden=false;
-    }else{
-      this.noCoinciden=true;
-    }
+    //this.cambiandoContrasenia=false;
+    //this.noCoinciden=false;
+    //}else{
+     // this.noCoinciden=true;
+    //}
   }
   eliminarUsuario(){
     if(confirm("Estas seguro que desea eliminar la cuenta? esta accion es permantente")){
       this.authService.eliminarUsuario().subscribe(data => {
-        alert(data.data);
+        this.toastr.success(data.data);
       })
     }
   }

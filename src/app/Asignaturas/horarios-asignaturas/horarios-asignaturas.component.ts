@@ -5,6 +5,8 @@ import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import {Router} from '@angular/router';
 import { Horario } from '../../Clases/horario';
+import { ToastrService } from 'ngx-toastr';
+ 
 @Component({
   selector: 'app-horarios-asignaturas',
   templateUrl: './horarios-asignaturas.component.html',
@@ -15,7 +17,8 @@ export class HorariosAsignaturasComponent implements OnInit {
   horarios:Array<Horario>;
 
   constructor(private router:Router,
-    private asignaturaService:AsignaturaService) { 
+    private asignaturaService:AsignaturaService,
+    private toastr:ToastrService) { 
     const navigation = this.router.getCurrentNavigation();
     this.asignatura= navigation.extras.state.asignatura;
     this.getHorarios();
@@ -37,7 +40,7 @@ export class HorariosAsignaturasComponent implements OnInit {
   }
   eliminarHorario(id,i){
       this.asignaturaService.borrarHorario(id).subscribe(data => {
-        alert(data.data);
+        this.toastr.success(data.data);
         if(data.data=="Horario eliminado con exito"){
           if (i !== -1) {
               this.horarios.splice(i, 1);

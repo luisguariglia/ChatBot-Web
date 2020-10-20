@@ -6,6 +6,8 @@ import {Router} from '@angular/router';
 import {AuthService} from '../../Services/auth.service';
 import { FormGroup,FormControl,FormBuilder,Validators} from '@angular/forms';
 import {AsignaturaService} from '../../Services/asignatura.service';
+import { ToastrService } from 'ngx-toastr';
+ 
 @Component({
   selector: 'app-nueva-asignatura',
   templateUrl: './nueva-asignatura.component.html',
@@ -42,7 +44,8 @@ export class NuevaAsignaturaComponent implements OnInit {
     private router: Router,
     private auth: AuthService,
     private fb: FormBuilder,
-    private asignaturaService:AsignaturaService) { }
+    private asignaturaService:AsignaturaService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -60,7 +63,8 @@ export class NuevaAsignaturaComponent implements OnInit {
       this.profileForm.value.fechaIncripcion
       )
     .subscribe(data => {
-      alert(data.data);
+      //alert(data.data);
+      this.toastr.success(data.data);
       this.router.navigate(['/asignaturasAdmin']);
     }
     );

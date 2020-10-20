@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import {Router} from '@angular/router';
 import { FormGroup,FormControl,FormBuilder,Validators} from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-ver-asignatura',
@@ -39,7 +40,8 @@ export class VerAsignaturaComponent implements OnInit {
        ]),  
   });
   constructor(private router:Router,
-    private asignaturaService:AsignaturaService) {
+    private asignaturaService:AsignaturaService,
+    private toastr:ToastrService) {
     const navigation = this.router.getCurrentNavigation();
     this.asignatura= navigation.extras.state.asignatura;
 
@@ -59,7 +61,7 @@ export class VerAsignaturaComponent implements OnInit {
     this.asignaturaEditar.fechaInscripcion=this.profileForm.value.fechaInscripcion;
 
     this.asignaturaService.editarAsignatura(this.asignaturaEditar).subscribe(data => {
-        alert(data.data);
+        this.toastr.success(data.data);
         this.router.navigateByUrl('/asignaturasAdmin');
     })   
   }

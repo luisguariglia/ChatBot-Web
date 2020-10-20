@@ -4,6 +4,7 @@ import { UsuarioService } from '../../Services/usuario.service';
 import { Location } from '@angular/common';
 import {AuthService} from '../../Services/auth.service';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
@@ -16,7 +17,8 @@ export class UsuarioComponent implements OnInit {
   constructor(private usuarioSevice: UsuarioService,
      private route: ActivatedRoute,
      private location: Location,
-     private authService:AuthService) {}
+     private authService:AuthService,
+     private toastr:ToastrService) {}
      
 
   ngOnInit() {
@@ -39,10 +41,10 @@ export class UsuarioComponent implements OnInit {
   borrarUsuario(id){
     if(confirm("Estas seguro que desea eliminar la cuenta? esta accion es permantente")){
       this.usuarioSevice.borrarUsuario(id).subscribe(data => {
-        alert(data.data);
+        this.toastr.success(data.data);
       })
       if(id==this.authService.getActualUser()){
-        alert("Elimino su propia cuenta, volviendo al menu proncipal");
+        this.toastr.success("Elimino su propia cuenta, volviendo al menu proncipal");
         this.authService.logOut();
       }
     }

@@ -4,6 +4,8 @@ import { AsignaturaService } from '../../Services/asignatura.service';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import {Router} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+ 
 @Component({
   selector: 'app-asignaturas-admin',
   templateUrl: './asignaturas-admin.component.html',
@@ -14,7 +16,8 @@ export class AsignaturasAdminComponent implements OnInit {
   constructor(private asignaturaService: AsignaturaService,
     private route: ActivatedRoute,
     private location: Location,
-    private router:Router) {}
+    private router:Router,
+    private toastr: ToastrService) {}
     
 
   ngOnInit(): void {
@@ -38,7 +41,7 @@ export class AsignaturasAdminComponent implements OnInit {
   }
   borrarSelect(asignatura,i){
     this.asignaturaService.borrarAsignatura(asignatura).subscribe(data => {
-      alert(data.data);
+      this.toastr.success(data.data);
       if(data.data=="Asignatura eliminada con exito"){
         if (i !== -1) {
             this.asignaturas.splice(i, 1);

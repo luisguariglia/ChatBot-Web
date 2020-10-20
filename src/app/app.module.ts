@@ -23,8 +23,11 @@ import { HorariosAsignaturasComponent } from './Asignaturas/horarios-asignaturas
 import { NuevoHorarioComponent } from './Asignaturas/nuevo-horario/nuevo-horario.component';
 import { EditarHorarioComponent } from './Asignaturas/editar-horario/editar-horario.component';
 import { RouterModule } from '@angular/router';
-
-//import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+ 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -44,8 +47,11 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule 
-    //FontAwesomeModule
+    RouterModule,
+    CommonModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot(),
+    FontAwesomeModule
   ],
   providers: [AuthService,AuthGuard,
   {

@@ -9,6 +9,8 @@ import { FormGroup,FormControl,FormBuilder,Validators} from '@angular/forms';
 import {AsignaturaService} from '../../Services/asignatura.service';
 import { Horario } from '../../Clases/horario';
 import { Asignatura } from '../../Clases/asignatura';
+import { ToastrService } from 'ngx-toastr';
+ 
 @Component({
   selector: 'app-nuevo-horario',
   templateUrl: './nuevo-horario.component.html',
@@ -35,7 +37,8 @@ export class NuevoHorarioComponent implements OnInit {
     private auth: AuthService,
     private fb: FormBuilder,
     private asignaturaService:AsignaturaService,
-    private _location: Location) { 
+    private _location: Location,
+    private toastr:ToastrService) { 
       const navigation = this.router.getCurrentNavigation();
       this.asignatura= navigation.extras.state.asignatura;
 
@@ -51,7 +54,7 @@ export class NuevoHorarioComponent implements OnInit {
       this.profileForm.value.horaHasta,
       this.asignatura
       ).subscribe(data => {
-      alert(data.data);
+      this.toastr.success(data.data);
       this.router.navigateByUrl('/horarios', { state: { asignatura: this.asignatura } });
     }
     );

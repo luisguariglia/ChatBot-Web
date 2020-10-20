@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {Router} from '@angular/router';
 import {AuthService} from '../../Services/auth.service';
 import { FormGroup,FormControl,FormBuilder,Validators} from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -40,7 +41,8 @@ export class RegisterComponent implements OnInit {
   constructor(private http: HttpClient,
     private router: Router,
     private auth: AuthService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private toastr:ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -53,7 +55,7 @@ export class RegisterComponent implements OnInit {
       this.profileForm.value.password
       )
     .subscribe(data => {
-      alert(data.data);
+      this.toastr.success(data.data);
       if(data.data=="Usuario agregado con éxito"){
         this.contraseniaDiferente=false;
         this.auth.loginUser(this.profileForm.value.cedula,this.profileForm.value.password)
