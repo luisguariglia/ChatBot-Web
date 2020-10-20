@@ -86,16 +86,15 @@ profileForm = new FormGroup({
     this.editandoPerfil=!this.editandoPerfil;
   }
   cambiarContrasenia(){
-    this.toastr.success("hola");
-    //if(this.profileForm.value.nueva==this.profileForm.value.confirmar){
-    this.authService.updateContrasenia(this.profileForm.value.actual,this.profileForm.value.nueva).subscribe(data => {
-      this.toastr.success(data.data);
+    if(this.passwdForm.value.nueva==this.passwdForm.value.confirmar){
+    this.authService.updateContrasenia(this.passwdForm.value.actual,this.passwdForm.value.nueva).subscribe(data => {
+      this.toastr.success(data.data);     
     })
-    //this.cambiandoContrasenia=false;
-    //this.noCoinciden=false;
-    //}else{
-     // this.noCoinciden=true;
-    //}
+    this.cambiandoContrasenia=false;
+    this.noCoinciden=false;
+    }else{
+      this.noCoinciden=true;
+    }
   }
   eliminarUsuario(){
     if(confirm("Estas seguro que desea eliminar la cuenta? esta accion es permantente")){
