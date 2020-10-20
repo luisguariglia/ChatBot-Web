@@ -1,5 +1,5 @@
-import { Asignatura } from '../asignatura';
-import { Usuario } from '../usuario';
+import { Asignatura } from './asignatura';
+import { Usuario } from './usuario';
 
 export interface UsuarioAsignatura {
     id:string;

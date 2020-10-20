@@ -3,26 +3,29 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UsuarioComponent } from './usuario/usuario.component';
+import { UsuarioComponent } from './Usuarios/usuario/usuario.component';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ChatComponent } from './chat/chat.component';
-import { MenuAdminComponent } from './menu-admin/menu-admin.component';
-import { InicioComponent } from './inicio/inicio.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { AuthService } from './auth.service';
+import { MenuAdminComponent } from './Menus/menu-admin/menu-admin.component';
+import { InicioComponent } from './Menus/inicio/inicio.component';
+import { LoginComponent } from './Usuarios/login/login.component';
+import { RegisterComponent } from './Usuarios/register/register.component';
+import { NavbarComponent } from './Menus/navbar/navbar.component';
+import { AuthService } from './Services/auth.service';
 import { AuthGuard } from './auth.guard';
-import { PerfilComponent } from './perfil/perfil.component';
-import { TokenInterceptorService} from './token-interceptor.service';
-import { AsignaturasAdminComponent } from './asignaturas-admin/asignaturas-admin.component';
-import { NuevaAsignaturaComponent } from './nueva-asignatura/nueva-asignatura.component';
-import { VerAsignaturaComponent } from './ver-asignatura/ver-asignatura.component';
-import { HorariosAsignaturasComponent } from './horarios-asignaturas/horarios-asignaturas.component';
-import { NuevoHorarioComponent } from './nuevo-horario/nuevo-horario.component';
-import { EditarHorarioComponent } from './editar-horario/editar-horario.component';
+import { PerfilComponent } from './Usuarios/perfil/perfil.component';
+import { TokenInterceptorService} from './Services/token-interceptor.service';
+import { AsignaturasAdminComponent } from './Asignaturas/asignaturas-admin/asignaturas-admin.component';
+import { NuevaAsignaturaComponent } from './Asignaturas/nueva-asignatura/nueva-asignatura.component';
+import { VerAsignaturaComponent } from './Asignaturas/ver-asignatura/ver-asignatura.component';
+import { HorariosAsignaturasComponent } from './Asignaturas/horarios-asignaturas/horarios-asignaturas.component';
+import { NuevoHorarioComponent } from './Asignaturas/nuevo-horario/nuevo-horario.component';
+import { EditarHorarioComponent } from './Asignaturas/editar-horario/editar-horario.component';
+import { RouterModule } from '@angular/router';
+
 //import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +44,7 @@ import { EditarHorarioComponent } from './editar-horario/editar-horario.componen
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    RouterModule 
     //FontAwesomeModule
   ],
   providers: [AuthService,AuthGuard,
@@ -50,5 +54,7 @@ import { EditarHorarioComponent } from './editar-horario/editar-horario.componen
     multi:true
   }], 
   bootstrap: [AppComponent]
+  
 })
+
 export class AppModule { }
