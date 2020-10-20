@@ -46,7 +46,7 @@ html {
   .container img.tu {
     float: right;
     margin-left: 0px;
-    margin-right:0;
+    margin-right:0px;
   }
   
   /* Style time text */
@@ -78,12 +78,39 @@ html {
 
 
  @media (max-width: 800px) {
+
+  #chat{
+    max-width: 100%;
+    margin: 0%;
+    padding: 0%;
+  }
+  
+  .messages{
+    margin: 0%;
+    padding: 0%;
+  }
+  
+  ul{
+    margin: 0%;
+    padding: 0%;
+  }
+  
   .aling{
-    width: 100%;
-    float:none;
+    height:100%;
+    width:80%;
+    border-radius: 5px;
+    padding: 8%;
+    margin: 10% 0%;
   }
   .obscuro{
-    float: none;
+    float: right;
+    margin: 5%;
+    margin-right: 0%;
+  }
+  .claro{
+    margin: 5%;
+    margin-left: 0%;
+    margin-top: 0%;
   }
  
 }
