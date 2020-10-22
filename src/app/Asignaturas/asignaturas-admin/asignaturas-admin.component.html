@@ -28,6 +28,7 @@
                   <td>{{asignatura.correoDoc}}</td>
 
                   <td>
+                    <button class="btn btn-primary mr-3" (click)="editarEvaluaciones(asignatura)">Evaluaciones</button>
                     <button class="btn btn-primary mr-3" (click)="editarHorarios(asignatura)">Horarios</button>
                     <button class="btn btn-warning mr-3" (click)="editarSelect(asignatura)">Editar</button>
                     <button class="btn btn-danger" (click)="borrarSelect(asignatura.id)">Borrar</button></td>

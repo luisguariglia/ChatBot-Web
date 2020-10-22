@@ -73,5 +73,27 @@ export class AsignaturaService {
       id:id,
       });
   }
+  /////////////////////////////////////////////////////////////////
+  getEvaluacion(id){
+    return this.http.post<any>('http://localhost:8080/asignaturas/detalleEvaluacion', {
+      id:id,
+      });
+  }
+  nuevaEvaluacion(nombre,fecha,tipo,fechaEntrega,fechaDefensa,id){
+    return this.http.post<any>('http://localhost:8080/asignaturas/nuevaEvaluacion', {
+      nombre:nombre,
+      fecha:fecha,
+      tipo:tipo,
+      fechaEntrega:fechaEntrega,
+      fechaDefensa:fechaDefensa,
+      idAsig:id
+      });
+  }
+  borrarEvaluacion(id){
+    alert(id);
+    return this.http.post<any>('http://localhost:8080/asignaturas/deleteEvaluacion', {
+      id:id,
+      });
+  }
 
 }
