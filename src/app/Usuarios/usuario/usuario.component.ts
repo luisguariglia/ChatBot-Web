@@ -42,6 +42,7 @@ export class UsuarioComponent implements OnInit {
     if(confirm("Estas seguro que desea eliminar la cuenta? esta accion es permantente")){
       this.usuarioSevice.borrarUsuario(id).subscribe(data => {
         this.toastr.success(data.data);
+        this.getUsuarios();
       })
       if(id==this.authService.getActualUser()){
         this.toastr.success("Elimino su propia cuenta, volviendo al menu proncipal");

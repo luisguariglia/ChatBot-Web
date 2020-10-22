@@ -23,14 +23,14 @@ export class EditarHorarioComponent implements OnInit {
     //Validators.minLength(8)
     ]),
     dia: new FormControl('',
-    /*Validators.required*/
+    Validators.required
     ),
     horaD: new FormControl('',
     Validators.required
     ),
     horaH: new FormControl('',
     Validators.required
-    ),
+    )
   });
   constructor(private router:Router,
     private asignaturaService:AsignaturaService,
@@ -45,6 +45,7 @@ export class EditarHorarioComponent implements OnInit {
      }
 
   ngOnInit(): void {
+    //alert(this.horarioEditar.dia);
   }
   editarHorario(){
     

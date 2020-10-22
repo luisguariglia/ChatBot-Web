@@ -21,11 +21,12 @@ export class HorariosAsignaturasComponent implements OnInit {
     private toastr:ToastrService) { 
     const navigation = this.router.getCurrentNavigation();
     this.asignatura= navigation.extras.state.asignatura;
-    this.getHorarios();
     this.horarios=new Array();
+    this.getHorarios();
   }
 
   ngOnInit(): void {
+  
   }
   getHorarios(){
     
@@ -39,6 +40,8 @@ export class HorariosAsignaturasComponent implements OnInit {
     }
   }
   eliminarHorario(id,i){
+    if(confirm("Estas seguro que desea eliminar este horario? esta accion es permantente")){
+
       this.asignaturaService.borrarHorario(id).subscribe(data => {
         this.toastr.success(data.data);
         if(data.data=="Horario eliminado con exito"){
@@ -47,6 +50,7 @@ export class HorariosAsignaturasComponent implements OnInit {
           }   
         }
       })
+    }
   }
   editarHorario(horario){
     this.router.navigateByUrl('/verHorario', { state: { horario: horario } });

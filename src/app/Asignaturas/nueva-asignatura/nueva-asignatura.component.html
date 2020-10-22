@@ -16,15 +16,15 @@
                   <label>Nombre</label>
                   <input formControlName="nombre" type="text" placeholder="Nombre" class="mb-2 form-control">
                   <label>Creditos que otorga</label>
-                  <input formControlName="creditos" type="number" placeholder="Creditos" class="mb-2 form-control">
+                  <input formControlName="creditos" type="text" placeholder="Creditos" class="mb-2 form-control" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))">
                   <!-- <input formControlName="programa" type="text" placeholder="Insertar Contraseña" class="mb-2 form-control"><br>-->
 
                   <!--<input formControlName="apruebaPor" type="text"  placeholder="apruebaPor" class="mb-2">  <br>   
 
                     -->
                     <label>Se aprueba por </label>
-                    <select formControlName="apruebaPor" class="mb-2 form-control custom-select">
-                    <option value="Parciales">Parciales</option>
+                    <select  formControlName="apruebaPor" class="mb-2 custom-select" >
+                    <option value="Parciales" >Parciales</option>
                     <option value="Laboratorios">Laboratorios</option>
                     <option value="Defensas">Defensas</option>
                     <option value="Obligatorios">Obligatorios</option>
@@ -37,7 +37,7 @@
                   <input formControlName="correoDocente" type="text" placeholder="Correo del Docente"
                     class="mb-2 form-control">
                     <label>Fecha limite de inscripción </label>
-                  <input formControlName="fechaIncripcion" type="date" placeholder="Fecha de inscripcion"
+                  <input formControlName="fechaInscripcion" type="date" placeholder="Fecha de inscripcion"
                     class="mb-2 form-control">
                   <div class="form-group">
                     <button type="button" class="btn btn-primary float-left" (click)="cancelar()"> Cancelar</button>

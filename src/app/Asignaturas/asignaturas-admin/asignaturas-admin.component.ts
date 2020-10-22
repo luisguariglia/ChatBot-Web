@@ -40,6 +40,7 @@ export class AsignaturasAdminComponent implements OnInit {
     this.router.navigateByUrl('/horarios', { state: { asignatura: asignatura } });
   }
   borrarSelect(asignatura,i){
+    if(confirm("Estas seguro que desea eliminar esta asignatúra? esta accion es permantente")){
     this.asignaturaService.borrarAsignatura(asignatura).subscribe(data => {
       this.toastr.success(data.data);
       if(data.data=="Asignatura eliminada con exito"){
@@ -47,6 +48,7 @@ export class AsignaturasAdminComponent implements OnInit {
             this.asignaturas.splice(i, 1);
         }   
       }
+      this.getAsignaturas();
     })
-  }
+  }}
 }

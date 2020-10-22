@@ -22,6 +22,8 @@ export class PerfilComponent implements OnInit {
   nueva:string;
   confirmar:string;
   noCoinciden:boolean;
+  actualIncorrecta:boolean;
+
 
 profileForm = new FormGroup({
     cedula: new FormControl('',[
@@ -39,9 +41,10 @@ profileForm = new FormGroup({
     actual: new FormControl('',[
     Validators.required,
     ]),
-    nueva: new FormControl('',
-    Validators.required
-    ),
+    nueva: new FormControl('',[
+    Validators.required,
+    Validators.minLength(6)
+  ]),
     confirmar: new FormControl('',
     Validators.required
     ),
@@ -58,6 +61,8 @@ profileForm = new FormGroup({
     this.id=this.authService.getActualUser();
     this.obtenerDatos();
     this.noCoinciden=false;
+    this.actualIncorrecta=false;
+    
     
   }
   obtenerDatos(){
@@ -87,12 +92,27 @@ profileForm = new FormGroup({
   }
   cambiarContrasenia(){
     if(this.passwdForm.value.nueva==this.passwdForm.value.confirmar){
+      this.noCoinciden=false;
+
     this.authService.updateContrasenia(this.passwdForm.value.actual,this.passwdForm.value.nueva).subscribe(data => {
-      this.toastr.success(data.data);     
+      if(data.data == "La contraseña actual es incorrecta"){
+        this.actualIncorrecta = true;
+        this.cambiandoContrasenia=true;
+      }else{
+        this.toastr.success(data.data);
+        this.noCoinciden=false;
+        this.actualIncorrecta = false;
+        this.cambiandoContrasenia=false;
+        this.confirmar = "";
+        this.actual = "";
+        this.nueva = "";
+      }
+         
     })
-    this.cambiandoContrasenia=false;
-    this.noCoinciden=false;
+    
+    
     }else{
+      this.actualIncorrecta = false;
       this.noCoinciden=true;
     }
   }
@@ -100,6 +120,7 @@ profileForm = new FormGroup({
     if(confirm("Estas seguro que desea eliminar la cuenta? esta accion es permantente")){
       this.authService.eliminarUsuario().subscribe(data => {
         this.toastr.success(data.data);
+        this.authService.logOut();
       })
     }
   }

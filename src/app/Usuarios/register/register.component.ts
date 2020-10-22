@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   ]),
   password: new FormControl('',[
     Validators.required,
-    Validators.minLength(8)
+    Validators.minLength(6)
     ]),
   nombre: new FormControl('',[
     Validators.required,
@@ -32,6 +32,7 @@ export class RegisterComponent implements OnInit {
     ]),
   repassword: new FormControl('',[
      Validators.required
+     
     ]),  
 });
   admin:boolean;
@@ -55,19 +56,24 @@ export class RegisterComponent implements OnInit {
       this.profileForm.value.password
       )
     .subscribe(data => {
-      this.toastr.success(data.data);
-      if(data.data=="Usuario agregado con éxito"){
-        this.contraseniaDiferente=false;
-        this.auth.loginUser(this.profileForm.value.cedula,this.profileForm.value.password)
-        .subscribe(data => {
-          if(data.ok){
-            localStorage.setItem("token",data.token);
-            this.router.navigate(['/chat']);
+      if(data.data == "La cédula ya ha sido registrada"){
+        this.toastr.error(data.data);
+      }else{
+        this.toastr.success(data.data);
+        if(data.data=="Usuario agregado con éxito"){
+          this.contraseniaDiferente=false;
+          this.auth.loginUser(this.profileForm.value.cedula,this.profileForm.value.password)
+          .subscribe(data => {
+            if(data.ok){
+              localStorage.setItem("token",data.token);
+              this.router.navigate(['/chat']);
+            }
           }
+          );
+  
         }
-        );
-
       }
+     
     }
     );
   }else{

@@ -12,26 +12,30 @@
                 <div class="col-5">
                     <form [formGroup]="profileForm" (ngSubmit)="addHorario()" class="mt-1">
                       <label>Semetre:</label>
-                    <input formControlName="semestre"  class="form-control" type="number"   placeholder="Semestre" ><br>
+                      <select formControlName="semestre" class="mb-2 form-control custom-select">
+                        <option value="1">Primer</option>
+                        <option value="2">Segundo</option>
+                        <option value="3">Tercer</option>
+                        <option value="4">Cuarto</option>
+                        <option value="5">Quinto</option>
+                        <option value="6">Sexto</option>
+                      </select>
+                    
                     <label>Dia:</label>
-
                     <select formControlName="dia" class="mb-2 form-control custom-select">
                       <option value="Lunes">Lunes</option>
                       <option value="Martes">Martes</option>
                       <option value="Miércoles">Miércoles</option>
                       <option value="Jueves">Jueves</option>
                       <option value="Viernes">Viernes</option>
-                      <option value="Sabado">Sabado</option>
-                      <option value="Domingo">Domingo</option>
-
                     </select>
                     <br>
                     <label>Hora desde:</label>
 
-                    <input formControlName="horaDesde" class="form-control" type="text"  placeholder="Insertar horaDesde" ><br>
+                    <input formControlName="horaDesde" class="form-control" type="text"  placeholder="Desde" ><br>
                     <label>Hora hasta:</label>
 
-                    <input formControlName="horaHasta" class="form-control" type="text" placeholder="Insertar horaHasta"><br> 
+                    <input formControlName="horaHasta" class="form-control" type="text" placeholder="Hasta"><br> 
         
                     <br>
                     <button type="button" class="btn btn-primary float-left" (click)="cancelar()" > Cancelar</button> 

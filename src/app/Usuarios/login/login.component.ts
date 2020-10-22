@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("token",data.token);
         this.router.navigate(['/chat']);      
       }else{
+        
         this.datosMal=true;
       }
     }
