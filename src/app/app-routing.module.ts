@@ -16,6 +16,7 @@ import { EditarHorarioComponent } from './Asignaturas/editar-horario/editar-hora
 import { NuevoHorarioComponent } from './Asignaturas/nuevo-horario/nuevo-horario.component';
 import { EvaluacionesAsignaturaComponent } from './Asignaturas/evaluaciones-asignatura/evaluaciones-asignatura.component';
 import { NuevaEvaluacionComponent } from './Asignaturas/nueva-evaluacion/nueva-evaluacion.component';
+import { ProgresoComponent } from './Usuarios/progreso/progreso.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -33,7 +34,8 @@ const routes: Routes = [
   { path: 'verHorario', component: EditarHorarioComponent},
   { path: 'nuevoHorario', component: NuevoHorarioComponent},
   { path: 'evaluaciones', component: EvaluacionesAsignaturaComponent},
-  { path: 'nuevaEvaluacion', component: NuevaEvaluacionComponent}
+  { path: 'nuevaEvaluacion', component: NuevaEvaluacionComponent},
+  { path: 'progreso', component: ProgresoComponent}
 ];
 
 @NgModule({

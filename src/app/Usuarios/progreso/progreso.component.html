@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm">
+        <div class="card bg-light mb-3" >
+            <div class="card-header h4">Asignaturas</div>
+
+          <div class="card-body">      
+          <table class="table table-responsive-xl">
+                <tr>
+                  <th scope="col">Código</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Correo del docente</th>      
+                  <th scope="col">Estado</th>
+
+                  <th scope="col">Acciones</th>
+                </tr>
+              <tbody>
+                <tr *ngFor="let asignatura of asignaturas; index as i">
+                  
+                  <td>{{asignatura.codigo}}</td>
+                  <td>{{asignatura.nombre}}</td>
+                  <td>{{asignatura.correoDoc}}</td>
+                  <td>Cursando</td>
+
+                  <td><button class="btn btn-primary mr-3">Editar Estado</button></tr>
+              </tbody>
+              </table>
+            
+
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+</div>
