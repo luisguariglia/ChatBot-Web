@@ -4,35 +4,26 @@
       <div class="col-sm">
         <div class="card bg-light mb-3" >
             <div class="card-header h4">Asignaturas</div>
-            <div class="card-body">      
-              <button class="btn btn-primary mr-2" (click)="goBack()">Volver</button>
-              <a class="btn btn-primary" routerLink="/nuevaAsignatura">Nueva</a>
-            </div>
 
           <div class="card-body">      
           <table class="table table-responsive-xl">
-              <thead >
                 <tr>
                   <th scope="col">Código</th>
                   <th scope="col">Nombre</th>
-                  <th scope="col">Correo del docente</th>
-                  
+                  <th scope="col">Correo del docente</th>      
+                  <th scope="col">Estado</th>
+
                   <th scope="col">Acciones</th>
                 </tr>
-              </thead>
               <tbody>
                 <tr *ngFor="let asignatura of asignaturas; index as i">
                   
                   <td>{{asignatura.codigo}}</td>
                   <td>{{asignatura.nombre}}</td>
                   <td>{{asignatura.correoDoc}}</td>
+                  <td>Cursando</td>
 
-                  <td>
-                    <button class="btn btn-primary mr-3" (click)="editarEvaluaciones(asignatura)">Evaluaciones</button>
-                    <button class="btn btn-primary mr-3" (click)="editarHorarios(asignatura)">Horarios</button>
-                    <button class="btn btn-warning mr-3" (click)="editarSelect(asignatura)">Editar</button>
-                    <button class="btn btn-danger" (click)="borrarSelect(asignatura.id)">Borrar</button></td>
-                </tr>
+                  <td><button class="btn btn-primary mr-3">Editar Estado</button></tr>
               </tbody>
               </table>
             

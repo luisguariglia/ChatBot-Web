@@ -28,6 +28,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
  
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EvaluacionesAsignaturaComponent } from './Asignaturas/evaluaciones-asignatura/evaluaciones-asignatura.component';
+import { NuevaEvaluacionComponent } from './Asignaturas/nueva-evaluacion/nueva-evaluacion.component';
+import { ProgresoComponent } from './Usuarios/progreso/progreso.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     LoginComponent,
     RegisterComponent,
     NavbarComponent, 
-    PerfilComponent, AsignaturasAdminComponent, NuevaAsignaturaComponent, VerAsignaturaComponent, HorariosAsignaturasComponent, NuevoHorarioComponent, EditarHorarioComponent
+    PerfilComponent, AsignaturasAdminComponent, NuevaAsignaturaComponent, VerAsignaturaComponent, HorariosAsignaturasComponent, NuevoHorarioComponent, EditarHorarioComponent, EvaluacionesAsignaturaComponent, NuevaEvaluacionComponent, ProgresoComponent
   ],
   imports: [
     BrowserModule,
