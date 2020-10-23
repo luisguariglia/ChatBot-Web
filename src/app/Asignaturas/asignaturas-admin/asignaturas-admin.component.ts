@@ -54,7 +54,5 @@ export class AsignaturasAdminComponent implements OnInit {
   editarEvaluaciones(asignatura){
     this.router.navigateByUrl('/evaluaciones', { state: { asignatura: asignatura } });
   }
-  editarEvaluaciones(asignatura){
-    this.router.navigateByUrl('/evaluaciones', { state: { asignatura: asignatura } });
-  }
+
 }
