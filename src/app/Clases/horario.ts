@@ -1,4 +1,4 @@
-import { Asignatura } from '../asignatura';
+import { Asignatura } from './asignatura';
 
 export interface Horario {
     id:string;

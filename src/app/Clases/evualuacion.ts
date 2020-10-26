@@ -1,4 +1,4 @@
-import { Asignatura } from '../asignatura';
+import { Asignatura } from './asignatura';
 import { Parcial } from './parcial';
 import { Examen } from './examen';
 import { Laboratorio } from './laboratorio';

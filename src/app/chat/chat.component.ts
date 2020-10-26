@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatService } from '../chat.service';
+//import { ConsoleReporter } from 'jasmine';
+import { ChatService } from '../Services/chat.service';
 
 
 @Component({
@@ -31,11 +32,20 @@ export class ChatComponent implements OnInit {
       this.mensajes.push({id:"tu", msj:this.contenidoMensaje,tono:"obscuro",hora:new Date().getHours()+":"+new Date().getMinutes()});
       this.responderErrorVacio();
     }else{
-      this.messageService.add(this.contenidoMensaje)
+      this.mensajes.push({id:"tu", msj:this.contenidoMensaje,tono:"obscuro",hora:new Date().getHours()+":"+new Date().getMinutes()});
+      let mensaje = this.contenidoMensaje;
+      this.contenidoMensaje = "";
+
+      this.messageService.add(mensaje)
       .subscribe(data => {
-        this.mensajes.push({id:"tu", msj:this.contenidoMensaje,tono:"obscuro",hora:new Date().getHours()+":"+new Date().getMinutes()});
-        this.contenidoMensaje = "";
-        this.responder(data.Reply);
+        if(data.Reply == ""){
+          this.messageService.webhook().subscribe(data => {
+            this.responder(data.Reply);
+          });
+        }else{
+          this.responder(data.Reply);
+        }
+        
       });
     }
   
