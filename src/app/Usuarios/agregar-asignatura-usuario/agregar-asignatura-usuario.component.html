@@ -3,17 +3,15 @@
       <div class="col-sm-1"></div>
       <div class="col-sm">
         <div class="card bg-light mb-3" >
-            <div class="card-header h4">Mi progreso academico</div>
-
+            <div class="card-header h4">Seleccionar asignatura</div>
+          
           <div class="card-body">      
-            <Button class="btn btn-primary mb-2" (click)="nuevoEstado()">Añadir nueva asignatura</Button>
+            <button class="btn btn-primary mb-2" (click)="volver()">Volver</button>
           <table class="table table-responsive-xl">
                 <tr>
                   <th scope="col">Código</th>
                   <th scope="col">Nombre</th>
                   <th scope="col">Correo del docente</th>      
-                  <th scope="col">Estado</th>
-
                   <th scope="col">Acciones</th>
                 </tr>
               <tbody>
@@ -22,9 +20,7 @@
                   <td>{{asignatura.codigo}}</td>
                   <td>{{asignatura.nombre}}</td>
                   <td>{{asignatura.correoDoc}}</td>
-                  <td>{{estados[i]}} </td>
-
-                
+ 
                   <!--<div class="btn-group dropright">
                       <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Editar Estado
@@ -34,21 +30,10 @@
                       </div>
                   </div>-->
 
-                  <button (click)="cambiarEstado(asignatura.id,'Cursando',i)">Cursando</button>
-                  <button (click)="cambiarEstado(asignatura.id,'Exámen',i)">Exámen</button>
-                  <button (click)="cambiarEstado(asignatura.id,'Exonerada',i)">Exonerada</button>
-                  <button (click)="cambiarEstado(asignatura.id,'Ninguno',i)">Ninguno</button>
-                  
-                  <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Dropdown button
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
+                  <button (click)="nuevoEstado(asignatura.id,'Cursando')">Cursando</button>
+                  <button (click)="nuevoEstado(asignatura.id,'Exámen')">Exámen</button>
+                  <button (click)="nuevoEstado(asignatura.id,'Exonerada')">Exonerada</button>
+
 
               </tbody>
               </table>

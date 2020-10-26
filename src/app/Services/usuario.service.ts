@@ -25,5 +25,24 @@ export class UsuarioService {
     //this.messageService.add(`HeroService: fetched hero id=${id}`);
     //return of(USUARIOS.find(hero => hero.id === id));
   //}
+  updateEstadoAsignatura(id,estado){
+    return this.http.post<any>('http://localhost:8080/usuario/updateUA', {
+      idUser:this.authService.getActualUser(),
+      id:id,
+      estado:estado
+      });
+  }
+  nuevoEstadoAsignatura(id,estado){
+    return this.http.post<any>('http://localhost:8080/usuario/asignaturaNuevo', {
+      idUser:this.authService.getActualUser(),
+      idAsig:id,
+      estado:estado
+      });
+  }
+  getUsuarioAsignatura(id){      //pedir un usuarioasignatura especifico
+    return this.http.post<any>('http://localhost:8080/usuario/detalleUA', {
+      id:id,
+      });
+  }
 
 }

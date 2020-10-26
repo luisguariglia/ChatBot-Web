@@ -39,8 +39,8 @@ export class EvaluacionesAsignaturaComponent implements OnInit {
 
     }
   }
-  eliminarEvaluacion(id,i){
-      this.asignaturaService.borrarEvaluacion(id).subscribe(data => {
+  eliminarEvaluacion(ev,i){
+      this.asignaturaService.borrarEvaluacion(ev.id,ev.tipo).subscribe(data => {
         this.toastr.success(data.data);
         if(data.data=="Evaluacion eliminada con exito"){
           if (i !== -1) {

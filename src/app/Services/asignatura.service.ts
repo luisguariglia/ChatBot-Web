@@ -89,11 +89,17 @@ export class AsignaturaService {
       idAsig:id
       });
   }
-  borrarEvaluacion(id){
-    alert(id);
+  borrarEvaluacion(id,tipo){
     return this.http.post<any>('http://localhost:8080/asignaturas/deleteEvaluacion', {
+      id:id,
+      tipo:tipo
+      });
+  }
+  getDetalleAsignatura(id){ ///detalle
+    return this.http.post<any>('http://localhost:8080/asignaturas/detalle', {
       id:id,
       });
   }
+
 
 }
