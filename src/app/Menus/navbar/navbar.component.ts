@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../Services/auth.service';
+import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,7 +10,8 @@ import {AuthService} from '../../Services/auth.service';
 })
 export class NavbarComponent implements OnInit {
   idAdmin=false;
-  constructor(private authService:AuthService) { 
+  constructor(private authService:AuthService,
+    private router:Router) { 
     this.pedirAdmin();
   }
 
@@ -29,5 +33,7 @@ export class NavbarComponent implements OnInit {
       this.idAdmin=data.data;
     })
   }
+ 
 }
+
 }

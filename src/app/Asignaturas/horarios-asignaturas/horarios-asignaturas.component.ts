@@ -15,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 export class HorariosAsignaturasComponent implements OnInit {
   asignatura:Asignatura;
   horarios:Array<Horario>;
-
+  cont:number;
   constructor(private router:Router,
     private asignaturaService:AsignaturaService,
     private toastr:ToastrService) { 
@@ -26,22 +26,21 @@ export class HorariosAsignaturasComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  
+    this.cont=0;
+    this.getHorarios();
   }
   getHorarios(){
-    
+    this.cont=0;
     for (let horario of this.asignatura.horarios) {
 
         this.asignaturaService.getHorario(horario).subscribe(data => {
         this.horarios.push(data.horario);   
-
+        this.cont+=1;
         })
 
     }
   }
   eliminarHorario(id,i){
-    if(confirm("Estas seguro que desea eliminar este horario? esta accion es permantente")){
-
       this.asignaturaService.borrarHorario(id).subscribe(data => {
         this.toastr.success(data.data);
         if(data.data=="Horario eliminado con exito"){
@@ -50,7 +49,6 @@ export class HorariosAsignaturasComponent implements OnInit {
           }   
         }
       })
-    }
   }
   editarHorario(horario){
     this.router.navigateByUrl('/verHorario', { state: { horario: horario } });

@@ -27,7 +27,6 @@ export class UsuarioService {
   //}
   updateEstadoAsignatura(id,estado){
     return this.http.post<any>('http://localhost:8080/usuario/updateUA', {
-      idUser:this.authService.getActualUser(),
       id:id,
       estado:estado
       });

@@ -17,6 +17,16 @@
           <li *ngIf="islogin()" (click)="logOut()" class="nav-item">
             <a class="nav-link" href="/">Salir</a>
         </li>
+        
+      </ul>
+
+      <ul class="navbar-nav ml-auto" *ngIf="islogin()==false">
+      <li  class="nav-item">
+        <a class="nav-link" href="/inicio">Ingresar</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/register">Registrarse</a>
+      </li>
       </ul>
   </div>
   </nav>

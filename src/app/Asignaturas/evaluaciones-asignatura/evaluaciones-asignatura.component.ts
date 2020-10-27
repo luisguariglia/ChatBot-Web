@@ -17,27 +17,31 @@ export class EvaluacionesAsignaturaComponent implements OnInit {
 
   asignatura:Asignatura;
   evaluaciones:Array<Evaluacion>;
-
+  cont:number;
   constructor(private router:Router,
     private asignaturaService:AsignaturaService,
     private toastr:ToastrService) { 
     const navigation = this.router.getCurrentNavigation();
     this.asignatura= navigation.extras.state.asignatura;
-    this.getEvaluaciones();
     this.evaluaciones=new Array();
+    this.getEvaluaciones();
   }
 
   ngOnInit(): void {
+    this.cont=0;
+    this.getEvaluaciones();
   }
   getEvaluaciones(){
-    
+    this.cont=0;
     for (let evaluacion of this.asignatura.evaluaciones) {
 
         this.asignaturaService.getEvaluacion(evaluacion).subscribe(data => {
         this.evaluaciones.push(data.evaluacion);   
+        this.cont+=1;
         })
 
     }
+    
   }
   eliminarEvaluacion(ev,i){
       this.asignaturaService.borrarEvaluacion(ev.id,ev.tipo).subscribe(data => {

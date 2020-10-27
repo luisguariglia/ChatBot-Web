@@ -22,31 +22,17 @@
                   <td>{{asignatura.codigo}}</td>
                   <td>{{asignatura.nombre}}</td>
                   <td>{{asignatura.correoDoc}}</td>
-                  <td>{{estados[i]}} </td>
-
-                
-                  <!--<div class="btn-group dropright">
-                      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Editar Estado
-                      </button>
-                      <div class="dropdown-menu">
-                        <button>hola</button>
-                      </div>
-                  </div>-->
-
-                  <button (click)="cambiarEstado(asignatura.id,'Cursando',i)">Cursando</button>
-                  <button (click)="cambiarEstado(asignatura.id,'Exámen',i)">Exámen</button>
-                  <button (click)="cambiarEstado(asignatura.id,'Exonerada',i)">Exonerada</button>
-                  <button (click)="cambiarEstado(asignatura.id,'Ninguno',i)">Ninguno</button>
-                  
-                  <div class="dropdown">
+                  <td>{{estados[i].estado}} </td>
+                                 
+                  <div class="dropright">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Dropdown button
+                      Modificar
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
+                      <button class="dropdown-item" (click)="cambiarEstado('Cursando',i,asignatura)">Cursando</button>
+                      <button class="dropdown-item" (click)="cambiarEstado('Exámen',i,asignatura)">Exámen</button>
+                      <button class="dropdown-item" (click)="cambiarEstado('Exonerada',i,asignatura)">Exonerada</button>
+                      <button class="dropdown-item" (click)="cambiarEstado('Ninguno',i,asignatura)">Ninguno</button>
                     </div>
                   </div>
 

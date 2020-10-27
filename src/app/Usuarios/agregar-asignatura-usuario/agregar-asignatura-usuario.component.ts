@@ -34,7 +34,7 @@ export class AgregarAsignaturaUsuarioComponent implements OnInit {
   nuevoEstado(id,estado){
     this.usuarioService.nuevoEstadoAsignatura(id,estado)
     .subscribe(data =>{
-      alert(data.data);
+      this.toastr.success(data.data);
       this.router.navigate(['/progreso']);
       });
   }

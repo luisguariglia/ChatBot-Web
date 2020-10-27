@@ -10,7 +10,7 @@
               <button type="button" class="btn btn-primary mb-2" (click)="nuevoHorario()">Nuevo</button>       
               <div class="container mb-2">
             
-              <table class="table table-responsive-xl">
+              <table  *ngIf="cont>0" class="table table-responsive-xl">
                 <thead >
                   <tr>
                     <th scope="col">Dia</th>
@@ -31,7 +31,7 @@
                 </tbody>
                 </table>
               <div>
-                  
+                <h5 class="m-2" *ngIf="cont==0">No hay horarios</h5>
                  
                 </div> 
             </div>

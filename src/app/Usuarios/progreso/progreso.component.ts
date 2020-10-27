@@ -39,7 +39,7 @@ export class ProgresoComponent implements OnInit {
           this.asignaturaService.getDetalleAsignatura(data.usuarioAsignatura.asignatura)
           .subscribe(dataDos => {
             this.asignaturas.push(dataDos.asignatura);
-            this.estados.push(data.usuarioAsignatura.estado);
+            this.estados.push(data.usuarioAsignatura);
             
           })
         })
@@ -48,11 +48,16 @@ export class ProgresoComponent implements OnInit {
 
     })
   }
-  cambiarEstado(idAsig,estado,idUsuarioAsignatura){
-    this.usuarioService.updateEstadoAsignatura(idUsuarioAsignatura,estado)
+  cambiarEstado(estado,idUsuarioAsignatura,asig){
+
+    this.usuarioService.updateEstadoAsignatura(this.estados[idUsuarioAsignatura].id,estado)
     .subscribe(data =>{
-      alert(data.data);
-      this.router.navigate(['/progreso']);
+      //this.asignaturas.push(asig);
+      //this.estados.push(estado);
+      this.asignaturas = new Array();
+      this.estados= new Array();
+      this.getAsignaturas();
+      this.toastr.success(data.data);
       });
   }
   nuevoEstado(){

@@ -3,7 +3,7 @@
       <div class="col-sm-1"></div>
       <div class="col-sm">
         <div class="card bg-light mb-3" >
-            <div class="card-header h4">Seleccionar asignatura</div>
+            <div class="card-header h4">Añadir asignatura a mi progreso</div>
           
           <div class="card-body">      
             <button class="btn btn-primary mb-2" (click)="volver()">Volver</button>
@@ -20,20 +20,19 @@
                   <td>{{asignatura.codigo}}</td>
                   <td>{{asignatura.nombre}}</td>
                   <td>{{asignatura.correoDoc}}</td>
- 
-                  <!--<div class="btn-group dropright">
-                      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Editar Estado
-                      </button>
-                      <div class="dropdown-menu">
-                        <button>hola</button>
-                      </div>
-                  </div>-->
 
-                  <button (click)="nuevoEstado(asignatura.id,'Cursando')">Cursando</button>
-                  <button (click)="nuevoEstado(asignatura.id,'Exámen')">Exámen</button>
-                  <button (click)="nuevoEstado(asignatura.id,'Exonerada')">Exonerada</button>
+                  
 
+                  <div class="dropright">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      SeleccionarEstado
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <button class="dropdown-item" (click)="nuevoEstado(asignatura.id,'Cursando')">Cursando</button>
+                      <button class="dropdown-item" (click)="nuevoEstado(asignatura.id,'Exámen')">Exámen</button>
+                      <button class="dropdown-item" (click)="nuevoEstado(asignatura.id,'Exonerada')">Exonerada</button>
+                    </div>
+                  </div>
 
               </tbody>
               </table>
