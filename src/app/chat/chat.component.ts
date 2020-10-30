@@ -35,7 +35,9 @@ export class ChatComponent implements OnInit {
       this.mensajes.push({id:"tu", msj:this.contenidoMensaje,tono:"obscuro",hora:new Date().getHours()+":"+new Date().getMinutes()});
       let mensaje = this.contenidoMensaje;
       this.contenidoMensaje = "";
-
+      this.mensajes.push({id:"temporal", msj:"Escribiendo...",tono:"claro",hora:""});
+      setTimeout(() => {  var chatHistory = document.getElementById("chat");
+    chatHistory.scrollTop = chatHistory.scrollHeight; }, 50);
       this.messageService.add(mensaje)
       .subscribe(data => {
         if(data.Reply == ""){
@@ -62,6 +64,7 @@ export class ChatComponent implements OnInit {
     chatHistory.scrollTop = chatHistory.scrollHeight; }, 50);
   }
   responder(respuesta){
+    this.mensajes.pop();
     this.mensajes.push({id:"boot", msj:respuesta,tono:"claro",hora:new Date().getHours()+":"+new Date().getMinutes()});
     setTimeout(() => {  var chatHistory = document.getElementById("chat");
     chatHistory.scrollTop = chatHistory.scrollHeight; }, 50);

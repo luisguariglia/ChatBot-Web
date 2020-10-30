@@ -1,6 +1,6 @@
 export namespace variablesGlobales {
     var actualUser;
-
+    var horariosGlobales;
     /*private static instance: variablesGlobales;
     private constructor() { }
     public static getInstance(): variablesGlobales {

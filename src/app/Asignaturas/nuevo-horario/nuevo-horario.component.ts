@@ -55,6 +55,8 @@ export class NuevoHorarioComponent implements OnInit {
       this.asignatura
       ).subscribe(data => {
       this.toastr.success(data.data);
+    //  this._location.back();
+
       this.router.navigateByUrl('/horarios', { state: { asignatura: this.asignatura } });
     }
     );

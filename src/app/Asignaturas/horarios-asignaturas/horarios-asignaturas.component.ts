@@ -22,7 +22,7 @@ export class HorariosAsignaturasComponent implements OnInit {
     const navigation = this.router.getCurrentNavigation();
     this.asignatura= navigation.extras.state.asignatura;
     this.horarios=new Array();
-    this.getHorarios();
+    //this.getHorarios();
   }
 
   ngOnInit(): void {
@@ -32,7 +32,6 @@ export class HorariosAsignaturasComponent implements OnInit {
   getHorarios(){
     this.cont=0;
     for (let horario of this.asignatura.horarios) {
-
         this.asignaturaService.getHorario(horario).subscribe(data => {
         this.horarios.push(data.horario);   
         this.cont+=1;

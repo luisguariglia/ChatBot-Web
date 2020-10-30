@@ -18,6 +18,10 @@ import { EvaluacionesAsignaturaComponent } from './Asignaturas/evaluaciones-asig
 import { NuevaEvaluacionComponent } from './Asignaturas/nueva-evaluacion/nueva-evaluacion.component';
 import { ProgresoComponent } from './Usuarios/progreso/progreso.component';
 import { AgregarAsignaturaUsuarioComponent } from './Usuarios/agregar-asignatura-usuario/agregar-asignatura-usuario.component';
+import { PreguntaComponent } from './preguntas/pregunta/pregunta.component';
+import { NuevapreguntaComponent } from './preguntas/nuevapregunta/nuevapregunta.component';
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -37,7 +41,9 @@ const routes: Routes = [
   { path: 'evaluaciones', component: EvaluacionesAsignaturaComponent},
   { path: 'nuevaEvaluacion', component: NuevaEvaluacionComponent},
   { path: 'progreso', component: ProgresoComponent},
-  { path: 'agregarAsig', component: AgregarAsignaturaUsuarioComponent}
+  { path: 'agregarAsig', component: AgregarAsignaturaUsuarioComponent},
+  { path: 'preguntas', component: PreguntaComponent},
+  { path: 'nuevaPregunta', component: NuevapreguntaComponent}
 ];
 
 @NgModule({

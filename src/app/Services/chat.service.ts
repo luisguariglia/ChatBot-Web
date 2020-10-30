@@ -18,13 +18,13 @@ export class ChatService {
     if(id == null || id == undefined){
       id = "0";
     }
-    return this.http.post<any>('http://localhost:5000/send-msg', {MSG:message,id:id});
+    return this.http.post<any>('https://chatbot-tip-backend-dialogflow.herokuapp.com/send-msg', {MSG:message,id:id});
   }
 
   webhook() {
     const headers = { 'Authorization': '*'};
     
-    return this.http.post<any>('http://localhost:5000/ultima',{});
+    return this.http.post<any>('https://chatbot-tip-backend-dialogflow.herokuapp.com/ultima',{});
   }
   clear() {
     //this.messages = [];

@@ -32,6 +32,8 @@ import { EvaluacionesAsignaturaComponent } from './Asignaturas/evaluaciones-asig
 import { NuevaEvaluacionComponent } from './Asignaturas/nueva-evaluacion/nueva-evaluacion.component';
 import { ProgresoComponent } from './Usuarios/progreso/progreso.component';
 import { AgregarAsignaturaUsuarioComponent } from './Usuarios/agregar-asignatura-usuario/agregar-asignatura-usuario.component';
+import { PreguntaComponent } from './preguntas/pregunta/pregunta.component';
+import { NuevapreguntaComponent } from './preguntas/nuevapregunta/nuevapregunta.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,7 @@ import { AgregarAsignaturaUsuarioComponent } from './Usuarios/agregar-asignatura
     LoginComponent,
     RegisterComponent,
     NavbarComponent, 
-    PerfilComponent, AsignaturasAdminComponent, NuevaAsignaturaComponent, VerAsignaturaComponent, HorariosAsignaturasComponent, NuevoHorarioComponent, EditarHorarioComponent, EvaluacionesAsignaturaComponent, NuevaEvaluacionComponent, ProgresoComponent, AgregarAsignaturaUsuarioComponent
+    PerfilComponent, AsignaturasAdminComponent, NuevaAsignaturaComponent, VerAsignaturaComponent, HorariosAsignaturasComponent, NuevoHorarioComponent, EditarHorarioComponent, EvaluacionesAsignaturaComponent, NuevaEvaluacionComponent, ProgresoComponent, AgregarAsignaturaUsuarioComponent, PreguntaComponent, NuevapreguntaComponent
   ],
   imports: [
     BrowserModule,
