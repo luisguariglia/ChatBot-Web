@@ -34,8 +34,13 @@ export class AgregarAsignaturaUsuarioComponent implements OnInit {
   nuevoEstado(id,estado){
     this.usuarioService.nuevoEstadoAsignatura(id,estado)
     .subscribe(data =>{
-      this.toastr.success(data.data);
-      this.router.navigate(['/progreso']);
+      if(data.data == "Ya te has registrado a esta asignatura"){
+        this.toastr.error(data.data);
+      }else{
+        this.toastr.success("Agregado con éxito");
+        this.router.navigate(['/progreso']);
+      }
+ 
       });
   }
   volver(){

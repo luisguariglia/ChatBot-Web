@@ -19,7 +19,11 @@ import { NuevaEvaluacionComponent } from './Asignaturas/nueva-evaluacion/nueva-e
 import { ProgresoComponent } from './Usuarios/progreso/progreso.component';
 import { AgregarAsignaturaUsuarioComponent } from './Usuarios/agregar-asignatura-usuario/agregar-asignatura-usuario.component';
 import { PreguntaComponent } from './preguntas/pregunta/pregunta.component';
+import { FeriadoComponent } from './feriados/feriado/feriado.component';
 import { NuevapreguntaComponent } from './preguntas/nuevapregunta/nuevapregunta.component';
+import { NuevoFeriadoComponent } from './feriados/nuevo-feriado/nuevo-feriado.component';
+import { ExcelComponent } from './excels/excel/excel.component';
+
 
 
 
@@ -43,7 +47,10 @@ const routes: Routes = [
   { path: 'progreso', component: ProgresoComponent},
   { path: 'agregarAsig', component: AgregarAsignaturaUsuarioComponent},
   { path: 'preguntas', component: PreguntaComponent},
-  { path: 'nuevaPregunta', component: NuevapreguntaComponent}
+  { path: 'nuevaPregunta', component: NuevapreguntaComponent},
+  { path: 'feriados', component: FeriadoComponent},
+  { path: 'nuevoFeriado', component: NuevoFeriadoComponent},
+  { path: 'excels', component: ExcelComponent}
 ];
 
 @NgModule({

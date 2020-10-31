@@ -24,7 +24,7 @@ export class EvaluacionesAsignaturaComponent implements OnInit {
     const navigation = this.router.getCurrentNavigation();
     this.asignatura= navigation.extras.state.asignatura;
     this.evaluaciones=new Array();
-    this.getEvaluaciones();
+   // this.getEvaluaciones();
   }
 
   ngOnInit(): void {

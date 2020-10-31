@@ -6,7 +6,7 @@
             <div class="card-header h4">Lista de preguntas</div>
             <div class="card-body">      
               
-              <button class="btn btn-primary mb-2" routerLink="/nuevaPregunta">Nueva pregunta</button>
+              <button class="btn btn-primary mb-2" routerLink="/nuevaPregunta"><i class="fa fa-plus" aria-hidden="true"></i> Nueva pregunta</button>
               <table class="table table-responsive-xl">
                 <thead >
                   <tr>
@@ -17,7 +17,7 @@
                 <tbody>
                   <tr *ngFor="let pregunta of listado">
                     <td>{{pregunta.nombre}}</td>
-                    <td><button class="btn btn-danger" (click)="borrarPregunta(pregunta.id)">Borrar</button></td>
+                    <td><button class="btn btn-danger" (click)="borrarPregunta(pregunta.id)"><i class="fa fa-trash" aria-hidden="true"></i> Borrar</button></td>
                   </tr>
                 </tbody>
                 </table>

@@ -31,6 +31,11 @@ export class UsuarioService {
       estado:estado
       });
   }
+  borrarEstadoAsignatura(id){
+    return this.http.post<any>('http://localhost:8080/usuario/usuarioAsignaturaDelete', {
+      id:id
+      });
+  }
   nuevoEstadoAsignatura(id,estado){
     return this.http.post<any>('http://localhost:8080/usuario/asignaturaNuevo', {
       idUser:this.authService.getActualUser(),

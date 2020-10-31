@@ -1,12 +1,12 @@
 <div class="container mt-5">
     <div class="row">
-      <div class="col-sm-1"></div>
-      <div class="col-sm">
+      <div class="col-7"></div>
+      <div class="col">
         <div class="card bg-light mb-3" >
             <div class="card-header h4">Asignaturas</div>
             <div class="card-body">      
               <!--<button class="btn btn-primary mr-2" (click)="goBack()">Volver</button>-->
-              <a class="btn btn-primary" routerLink="/nuevaAsignatura">Nueva</a>
+              <a class="btn btn-primary" routerLink="/nuevaAsignatura"><i class="fa fa-plus" aria-hidden="true"></i> Nueva</a>
             </div>
 
           <div class="card-body">      
@@ -28,10 +28,10 @@
                   <td>{{asignatura.correoDoc}}</td>
 
                   <td>
-                    <button class="btn btn-primary mr-3" (click)="editarEvaluaciones(asignatura)">Evaluaciones</button>
-                    <button class="btn btn-primary mr-3" (click)="editarHorarios(asignatura)">Horarios</button>
-                    <button class="btn btn-warning mr-3" (click)="editarSelect(asignatura)">Editar</button>
-                    <button class="btn btn-danger" (click)="borrarSelect(asignatura.id)">Borrar</button></td>
+                    <button class="btn btn-primary mr-3" (click)="editarEvaluaciones(asignatura)"><i class="fa fa-book" aria-hidden="true"></i> Evaluaciones</button>
+                    <button class="btn btn-primary mr-3" (click)="editarHorarios(asignatura)"><i class="fa fa-clock-o" aria-hidden="true"></i> Horarios</button>
+                    <button class="btn btn-warning mr-3" (click)="editarSelect(asignatura)"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</button>
+                    <button class="btn btn-danger" (click)="borrarSelect(asignatura.id)"><i class="fa fa-trash" aria-hidden="true"></i> Borrar</button></td>
                 </tr>
               </tbody>
               </table>

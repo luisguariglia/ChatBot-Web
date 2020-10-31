@@ -49,16 +49,25 @@ export class ProgresoComponent implements OnInit {
     })
   }
   cambiarEstado(estado,idUsuarioAsignatura,asig){
-
-    this.usuarioService.updateEstadoAsignatura(this.estados[idUsuarioAsignatura].id,estado)
-    .subscribe(data =>{
-      //this.asignaturas.push(asig);
-      //this.estados.push(estado);
-      this.asignaturas = new Array();
-      this.estados= new Array();
-      this.getAsignaturas();
-      this.toastr.success(data.data);
+    if(estado == "Quitar"){
+      this.usuarioService.borrarEstadoAsignatura(this.estados[idUsuarioAsignatura].id).subscribe(data =>{
+        this.asignaturas = new Array();
+        this.estados= new Array();
+        this.getAsignaturas();
+        this.toastr.success("Asignatura quitada con éxito");
       });
+    }else{
+      this.usuarioService.updateEstadoAsignatura(this.estados[idUsuarioAsignatura].id,estado)
+      .subscribe(data =>{
+        //this.asignaturas.push(asig);
+        //this.estados.push(estado);
+        this.asignaturas = new Array();
+        this.estados= new Array();
+        this.getAsignaturas();
+        this.toastr.success(data.data);
+        });
+    }
+   
   }
   nuevoEstado(){
     this.router.navigate(['/agregarAsig']);

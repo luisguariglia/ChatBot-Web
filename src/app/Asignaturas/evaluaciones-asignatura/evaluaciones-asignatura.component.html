@@ -7,7 +7,7 @@
             <div class="card-header h4">Evaluaciones de {{asignatura.nombre}}</div>
             <div class="card-body">
               <button type="button" class="btn btn-primary mb-2 mr-2" (click)="volver()">Volver</button>
-              <button type="button" class="btn btn-primary mb-2" (click)="nuevaEvaluacion()">Nueva</button>       
+              <button type="button" class="btn btn-primary mb-2" (click)="nuevaEvaluacion()"><i class="fa fa-plus" aria-hidden="true"></i> Nueva</button>       
               <div class="container mb-2">
             
               <table *ngIf="cont>0" class="table table-responsive-xl">
@@ -26,7 +26,7 @@
                     <td> {{evaluacion.nombre}}</td>
                     <td> {{evaluacion.fecha}}</td>
 
-                    <td><button type="button" class="btn btn-danger" (click)="eliminarEvaluacion(evaluacion,i)">Borrar</button></td>
+                    <td><button type="button" class="btn btn-danger" (click)="eliminarEvaluacion(evaluacion,i)"><i class="fa fa-trash" aria-hidden="true"></i> Borrar</button></td>
                   </tr>
                 </tbody>
                 </table>

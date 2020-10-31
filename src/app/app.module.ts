@@ -34,6 +34,9 @@ import { ProgresoComponent } from './Usuarios/progreso/progreso.component';
 import { AgregarAsignaturaUsuarioComponent } from './Usuarios/agregar-asignatura-usuario/agregar-asignatura-usuario.component';
 import { PreguntaComponent } from './preguntas/pregunta/pregunta.component';
 import { NuevapreguntaComponent } from './preguntas/nuevapregunta/nuevapregunta.component';
+import { FeriadoComponent } from './feriados/feriado/feriado.component';
+import { NuevoFeriadoComponent } from './feriados/nuevo-feriado/nuevo-feriado.component';
+import { ExcelComponent } from './excels/excel/excel.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,7 @@ import { NuevapreguntaComponent } from './preguntas/nuevapregunta/nuevapregunta.
     LoginComponent,
     RegisterComponent,
     NavbarComponent, 
-    PerfilComponent, AsignaturasAdminComponent, NuevaAsignaturaComponent, VerAsignaturaComponent, HorariosAsignaturasComponent, NuevoHorarioComponent, EditarHorarioComponent, EvaluacionesAsignaturaComponent, NuevaEvaluacionComponent, ProgresoComponent, AgregarAsignaturaUsuarioComponent, PreguntaComponent, NuevapreguntaComponent
+    PerfilComponent, AsignaturasAdminComponent, NuevaAsignaturaComponent, VerAsignaturaComponent, HorariosAsignaturasComponent, NuevoHorarioComponent, EditarHorarioComponent, EvaluacionesAsignaturaComponent, NuevaEvaluacionComponent, ProgresoComponent, AgregarAsignaturaUsuarioComponent, PreguntaComponent, NuevapreguntaComponent, FeriadoComponent, NuevoFeriadoComponent, ExcelComponent
   ],
   imports: [
     BrowserModule,

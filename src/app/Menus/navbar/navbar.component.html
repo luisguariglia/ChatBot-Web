@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" routerLink="/inicio">Chatbot</a>
+    <a class="navbar-brand" routerLink="/inicio"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
+    <a class="navbar-brand" routerLink="/chat">Chat</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,34 +9,38 @@
       
           <li *ngIf="isAdmin()" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Administración
+              <i class="fa fa-lock" aria-hidden="true"></i>  Administración 
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" routerLink="/usuarios">Administrar Usuarios</a>
+              <a class="dropdown-item" routerLink="/usuarios"><i class="fa fa-users" aria-hidden="true"></i> Administrar Usuarios</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" routerLink="/asignaturasAdmin">Administrar Asignaturas</a>
+              <a class="dropdown-item" routerLink="/asignaturasAdmin"><i class="fa fa-university" aria-hidden="true"></i> Administrar Asignaturas</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" routerLink="/preguntas">Administrar preguntas</a>
+              <a class="dropdown-item" routerLink="/preguntas"><i class="fa fa-question-circle" aria-hidden="true"></i> Administrar Preguntas</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" routerLink="/feriados"><i class="fa fa-pagelines" aria-hidden="true"></i> Administrar Feriados</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" routerLink="/excels"><i class="fa fa-table" aria-hidden="true"></i> Cargar Excel</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/progreso">Progreso Academico</a>
+            <a class="nav-link" routerLink="/progreso"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Progreso Academico</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" routerLink="/perfil">Perfil</a>
+              <a class="nav-link" routerLink="/perfil"><i class="fa fa-user" aria-hidden="true"></i> Perfil</a>
           </li>
           <li *ngIf="islogin()" (click)="logOut()" class="nav-item">
-            <a class="nav-link" routerLink="/">Salir</a>
+            <a class="nav-link" routerLink="/"><i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a>
         </li>
        
       </ul>
 
       <ul class="navbar-nav ml-auto" *ngIf="islogin()==false">
       <li  class="nav-item">
-        <a class="nav-link" routerLink="/inicio">Ingresar</a>
+        <a class="nav-link" routerLink="/inicio"><i class="fa fa-sign-in" aria-hidden="true"></i> Ingresar</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/register">Registrarse</a>
+        <a class="nav-link" routerLink="/register"><i class="fa fa-user-plus" aria-hidden="true"></i> Registrarse</a>
       </li>
       </ul>
   </div>
