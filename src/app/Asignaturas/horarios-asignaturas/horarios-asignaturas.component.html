@@ -13,6 +13,7 @@
               <table  *ngIf="cont>0" class="table table-responsive-xl">
                 <thead >
                   <tr>
+                    <th scope="col">Semestre</th>
                     <th scope="col">Dia</th>
                     <th scope="col">Desde</th>
                     <th scope="col">Hasta</th>
@@ -21,10 +22,10 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let horario of horarios; index as i">
-                    
+                    <td>{{horario.semestre}}</td>
                     <td>{{horario.dia}}</td>
-                    <td> {{horario.horaDesde}}</td>
-                    <td> {{horario.horaHasta}}</td>
+                    <td> {{horario.horaDesde}}:00 Hs</td>
+                    <td> {{horario.horaHasta}}:00 Hs</td>
                     <td><button type="button" class="btn btn-warning mr-3" (click)="editarHorario(horario)"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</button>
                       <button type="button" class="btn btn-danger" (click)="eliminarHorario(horario.id,i)"><i class="fa fa-trash" aria-hidden="true"></i> Borrar</button></td>
                   </tr>

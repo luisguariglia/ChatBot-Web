@@ -27,24 +27,29 @@ export class ExcelComponent implements OnInit {
     this.fileToUpload = files.item(0);
 }
  upload(): void{
-  let formData = new FormData();
-  //formData.append('filetoupload', )
+   if(this.fileToUpload == null){
+    this.toastr.error("No has seleccionado ningun archivo");
+   }else{
+    let formData = new FormData();
+    //formData.append('filetoupload', )
+    
+    formData.append('filetoupload', this.fileToUpload, this.fileToUpload.name);
+    //alert(formData['filetoupload']);
   
-  formData.append('filetoupload', this.fileToUpload, this.fileToUpload.name);
-  //alert(formData['filetoupload']);
+    this.excelService.subir(formData).subscribe(data => {
+      if(data.data == "Archivo subido!"){
+        this.excelService.alta().subscribe(data =>{
+          if(data.data != "Todo legal"){
+            this.toastr.error(data.data);
+          }else{
+            this.toastr.success("Los datos fueron actualizados exitosamente");
+          }
+        });
+      }else{
+        this.toastr.error("Ocurrió un error en la carga del archivo");
+      }
+    });
+   }
+   }
 
-  this.excelService.subir(formData).subscribe(data => {
-    if(data.data == "Archivo subido!"){
-      this.excelService.alta().subscribe(data =>{
-        if(data.data != "Todo legal"){
-          this.toastr.error(data.data);
-        }else{
-          this.toastr.success("Los datos fueron actualizados exitosamente");
-        }
-      });
-    }else{
-      this.toastr.error("Ocurrió un error en la carga del archivo");
-    }
-  });
- }
 }

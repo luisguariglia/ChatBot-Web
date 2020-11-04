@@ -8,6 +8,7 @@ import {AuthService} from '../../Services/auth.service';
 import { FormGroup,FormControl,FormBuilder,Validators} from '@angular/forms';
 import {AsignaturaService} from '../../Services/asignatura.service';
 import { Horario } from '../../Clases/horario';
+import { Evaluacion } from '../../Clases/evualuacion';
 import { Asignatura } from '../../Clases/asignatura';
 import { ToastrService } from 'ngx-toastr';
  
@@ -36,6 +37,8 @@ export class NuevaEvaluacionComponent implements OnInit {
         //Validators.required,
         ]),
   });
+  asignaturas :Asignatura[];
+
   constructor(private http: HttpClient,
     private router: Router,
     private auth: AuthService,
@@ -60,7 +63,19 @@ export class NuevaEvaluacionComponent implements OnInit {
       this.asignatura.id
       ).subscribe(data => {
       this.toastr.success(data.data);
-      this.router.navigateByUrl('/evaluaciones', { state: { asignatura: this.asignatura } });
+      this.asignaturaService.getAsignaturas()
+    .subscribe(asignaturas =>{
+    this.asignaturas = asignaturas.data;
+    for(let i=0;i<this.asignaturas.length;i++){
+      if(this.asignaturas[i].id == this.asignatura.id){
+        this.asignatura = this.asignaturas[i];
+        this.router.navigateByUrl('/evaluaciones', { state: { asignatura: this.asignatura } });
+      }
+    }
+       // this.router.navigateByUrl('/evaluaciones', { state: { asignatura: this.asignatura } });
+      });
+    
+     // this.router.navigateByUrl('/evaluaciones', { state: { asignatura: this.asignatura } });
     }
     );
     

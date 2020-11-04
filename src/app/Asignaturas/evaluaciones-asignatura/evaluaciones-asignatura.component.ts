@@ -27,11 +27,11 @@ export class EvaluacionesAsignaturaComponent implements OnInit {
    // this.getEvaluaciones();
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<any> {
     this.cont=0;
-    this.getEvaluaciones();
+    await this.getEvaluaciones();
   }
-  getEvaluaciones(){
+  async getEvaluaciones(){
     this.cont=0;
     for (let evaluacion of this.asignatura.evaluaciones) {
 

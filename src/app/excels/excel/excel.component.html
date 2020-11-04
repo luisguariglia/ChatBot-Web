@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <form method="post" enctype="multipart/form-data">
                         <label>Cargar archivo</label>
-                        <input type="file" class="form-control" id="file" (change)="handleFileInput($event.target.files)">
+                        <input type="file" class="form-control" id="file" (change)="handleFileInput($event.target.files)" accept=".xlsx">
                         <div class="form-group mt-4">
                             <a href="http://localhost:8080/planillas/download" target="_self"
                                 class="btn btn-success float-left"><i class="fa fa-download" aria-hidden="true"></i>

@@ -6,7 +6,7 @@
             <div class="card-header h4">Asignaturas</div>
             <div class="card-body">      
               <!--<button class="btn btn-primary mr-2" (click)="goBack()">Volver</button>-->
-              <a class="btn btn-primary" routerLink="/nuevaAsignatura"><i class="fa fa-plus" aria-hidden="true"></i> Nueva</a>
+              <a class="btn btn-primary" routerLink="/nuevaAsignatura"><i class="fa fa-plus" aria-hidden="true"></i> Nueva asignatura</a>
             </div>
 
           <div class="card-body">      
@@ -15,8 +15,7 @@
                 <tr>
                   <th scope="col">Código</th>
                   <th scope="col">Nombre</th>
-                  <th scope="col">Correo del docente</th>
-                  
+                  <th scope="col">Créditos</th>
                   <th scope="col">Acciones</th>
                 </tr>
               </thead>
@@ -25,8 +24,7 @@
                   
                   <td>{{asignatura.codigo}}</td>
                   <td>{{asignatura.nombre}}</td>
-                  <td>{{asignatura.correoDoc}}</td>
-
+                  <td>{{asignatura.creditos}}</td>
                   <td>
                     <button class="btn btn-primary mr-3" (click)="editarEvaluaciones(asignatura)"><i class="fa fa-book" aria-hidden="true"></i> Evaluaciones</button>
                     <button class="btn btn-primary mr-3" (click)="editarHorarios(asignatura)"><i class="fa fa-clock-o" aria-hidden="true"></i> Horarios</button>

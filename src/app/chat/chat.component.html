@@ -5,7 +5,7 @@
 	</div>
 	<div class="d-flex justify-content-center mt-5">
 		
-		<div class="col-7 card scrolleable" id="chat">
+		<div class="col-9 card scrolleable" id="chat">
 
 			<div class="messages">
 				<div>
@@ -19,7 +19,7 @@
 						<div *ngFor="let m of mensajes">
 							<div class="container ">
 								<div class="aling {{m.tono}}">
-									<p>{{m.msj}}</p>
+									<p [innerHTML]="m.msj"></p>
 									<span class="time-right">{{m.hora}}</span>
 								</div>
 							</div>
@@ -32,11 +32,11 @@
 		</div>
 	</div>
 	<div class="d-flex justify-content-center mt-3">
-		<div class="col-7">
+		<div class="col-9">
 			<div class="form-group d-flex">
 				<input type="text" [(ngModel)]="contenidoMensaje" name="" id="entrada"
 					placeholder="Escriba aquí..." class="form-control mb-2 submit-component" (keydown.enter)="enviarMensaje()">
-				<input  type="submit" name="enviar" class=" btn btn-primary ml-2 submit-component"
+				<input  type="submit" name="enviar" class=" btn btn-primary ml-2 submit-component mover"
 					(click)="enviarMensaje()"  value="Enviar">
 
 			</div>

@@ -24,7 +24,7 @@
                     
                     <td>{{evaluacion.tipo}}</td>
                     <td> {{evaluacion.nombre}}</td>
-                    <td> {{evaluacion.fecha}}</td>
+                    <td> {{evaluacion.fecha | date:'MM/dd/yyyy'}}</td>
 
                     <td><button type="button" class="btn btn-danger" (click)="eliminarEvaluacion(evaluacion,i)"><i class="fa fa-trash" aria-hidden="true"></i> Borrar</button></td>
                   </tr>

@@ -18,6 +18,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class NuevoHorarioComponent implements OnInit {
   asignatura:Asignatura;
+  asignaturas :Asignatura[];
+
   profileForm = new FormGroup({
     semestre: new FormControl('',[
       Validators.required,
@@ -56,8 +58,18 @@ export class NuevoHorarioComponent implements OnInit {
       ).subscribe(data => {
       this.toastr.success(data.data);
     //  this._location.back();
-
-      this.router.navigateByUrl('/horarios', { state: { asignatura: this.asignatura } });
+    this.asignaturaService.getAsignaturas()
+    .subscribe(asignaturas =>{
+    this.asignaturas = asignaturas.data;
+    for(let i=0;i<this.asignaturas.length;i++){
+      if(this.asignaturas[i].id == this.asignatura.id){
+        this.asignatura = this.asignaturas[i];
+        this.router.navigateByUrl('/horarios', { state: { asignatura: this.asignatura } });
+      }
+    }
+       // this.router.navigateByUrl('/evaluaciones', { state: { asignatura: this.asignatura } });
+      });
+      
     }
     );
     

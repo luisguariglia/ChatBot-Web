@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 //import { ConsoleReporter } from 'jasmine';
 import { ChatService } from '../Services/chat.service';
+import { AuthService } from '../Services/auth.service';
 
 
 @Component({
@@ -17,9 +18,13 @@ export class ChatComponent implements OnInit {
 
   constructor(
      private messageService: ChatService,
+     private authService:AuthService
     ) { }
 
   ngOnInit(): void {
+   /* this.authService.isAdmin().subscribe(data => {
+      alert(data.data);
+    })*/
   }
 
 
@@ -43,6 +48,7 @@ export class ChatComponent implements OnInit {
         if(data.Reply == ""){
           this.messageService.webhook().subscribe(data => {
             this.responder(data.Reply);
+            //console.log(data.Reply);
           });
         }else{
           this.responder(data.Reply);

@@ -62,14 +62,15 @@ export class RegisterComponent implements OnInit {
         this.toastr.success(data.data);
         if(data.data=="Usuario agregado con éxito"){
           this.contraseniaDiferente=false;
-          this.auth.loginUser(this.profileForm.value.cedula,this.profileForm.value.password)
+          this.router.navigate(['/inicio']);
+
+         /* this.auth.loginUser(this.profileForm.value.cedula,this.profileForm.value.password)
           .subscribe(data => {
             if(data.ok){
               localStorage.setItem("token",data.token);
-              this.router.navigate(['/chat']);
             }
           }
-          );
+          );*/
   
         }
       }
