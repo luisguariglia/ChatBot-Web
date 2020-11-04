@@ -1,5 +1,7 @@
 /*@import '~bootstrap/dist/css/bootstrap.min.css';*/
-
+*{
+  background-color: #BD362F;
+}
 .center {
     display: flex;
     justify-content: center;
