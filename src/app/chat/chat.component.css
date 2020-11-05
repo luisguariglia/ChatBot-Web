@@ -64,7 +64,7 @@ html {
   .scrolleable{
     scroll-behavior: smooth;
     overflow-y: scroll;
-    height:700px;
+    height:70vh;
   }
 
  #chat{
@@ -101,7 +101,7 @@ html {
     height:100%;
     width:80%;
     border-radius: 5px;
-    padding: 8%;
+    /*padding: 2vh;*/
     margin: 10% 0%;
   }
   .obscuro{
