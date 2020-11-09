@@ -12,7 +12,7 @@ export class AsignaturaService {
     private router:Router) { }
 
   nuevaAsignatura(codigo,nombre,creditos,programa,apruebaPor,nombreDocente,correoDocente,fechaIncripcion){
-    return this.http.post<any>('http://localhost:8080/asignaturas/nueva', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/asignaturas/nueva', {
       codigo:codigo,
       nombre:nombre,
       creditos:creditos,
@@ -25,10 +25,10 @@ export class AsignaturaService {
       });
   }
   getAsignaturas(){
-      return this.http.post<any>('http://localhost:8080/asignaturas/listado', {});
+      return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/asignaturas/listado', {});
   }
   editarAsignatura(asignatura){
-    return this.http.post<any>('http://localhost:8080/asignaturas/update', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/asignaturas/update', {
       id:asignatura.id,
       codigo:asignatura.codigo,
       nombre:asignatura.nombre,
@@ -41,17 +41,17 @@ export class AsignaturaService {
       });
   }
   borrarAsignatura(id){
-    return this.http.post<any>('http://localhost:8080/asignaturas/delete', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/asignaturas/delete', {
       id:id,
       });
   }
   getHorario(id){
-    return this.http.post<any>('http://localhost:8080/asignaturas/detalleHorario', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/asignaturas/detalleHorario', {
       id:id,
       });
   }
   editarHorario(horario){
-    return this.http.post<any>('http://localhost:8080/asignaturas/updateHorario', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/asignaturas/updateHorario', {
       id:horario.id,
       semestre:horario.semestre,
       dia:horario.dia,
@@ -60,7 +60,7 @@ export class AsignaturaService {
       });
   }
   nuevoHorario(semestre,dia,horaDesde,horaHasta,asignatura){
-    return this.http.post<any>('http://localhost:8080/asignaturas/nuevoHorario', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/asignaturas/nuevoHorario', {
       semestre:semestre,
       dia:dia,
       horaDesde:horaDesde,
@@ -69,18 +69,18 @@ export class AsignaturaService {
       });
   }
   borrarHorario(id){
-    return this.http.post<any>('http://localhost:8080/asignaturas/deleteHorario', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/asignaturas/deleteHorario', {
       id:id,
       });
   }
   /////////////////////////////////////////////////////////////////
   getEvaluacion(id){
-    return this.http.post<any>('http://localhost:8080/asignaturas/detalleEvaluacion', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/asignaturas/detalleEvaluacion', {
       id:id,
       });
   }
   nuevaEvaluacion(nombre,fecha,tipo,fechaEntrega,fechaDefensa,id){
-    return this.http.post<any>('http://localhost:8080/asignaturas/nuevaEvaluacion', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/asignaturas/nuevaEvaluacion', {
       nombre:nombre,
       fecha:fecha,
       tipo:tipo,
@@ -90,13 +90,13 @@ export class AsignaturaService {
       });
   }
   borrarEvaluacion(id,tipo){
-    return this.http.post<any>('http://localhost:8080/asignaturas/deleteEvaluacion', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/asignaturas/deleteEvaluacion', {
       id:id,
       tipo:tipo
       });
   }
   getDetalleAsignatura(id){ ///detalle
-    return this.http.post<any>('http://localhost:8080/asignaturas/detalle', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/asignaturas/detalle', {
       id:id,
       });
   }

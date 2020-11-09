@@ -13,18 +13,18 @@ export class ExcelService {
 
   Descargar() {
     const headers = { 'Authorization': '*'};
-    return this.http.get<any>('http://localhost:8080/planillas/download');
+    return this.http.get<any>('https://chatbot-tip-backend.herokuapp.com/planillas/download');
   }
 
   
   
   subir(form){
     const headers = {'Content-Type': 'multipart/form-data','Authorization': '*'}
-    return this.http.post<any>('http://localhost:8080/planillas/upload', form);
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/planillas/upload', form);
   }
   alta(){
     const headers = {'Content-Type': 'multipart/form-data','Authorization': '*'}
-    return this.http.post<any>('http://localhost:8080/planillas/alta', {});
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/planillas/alta', {});
   }
   clear() {
     //this.messages = [];

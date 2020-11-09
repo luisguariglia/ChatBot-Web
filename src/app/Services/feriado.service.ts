@@ -13,17 +13,17 @@ export class FeriadoService {
 
   listar() {
     const headers = { 'Authorization': '*'};
-    return this.http.post<any>('http://localhost:8080/feriados/listado',{});
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/feriados/listado',{});
   }
 
   nuevoFeriado(fecha,motivo){
-    return this.http.post<any>('http://localhost:8080/feriados/nuevo', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/feriados/nuevo', {
       fecha:fecha,
       motivo:motivo
       });
   }
   borrar(id){
-    return this.http.post<any>('http://localhost:8080/feriados/delete', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/feriados/delete', {
       id:id,
       });
   }

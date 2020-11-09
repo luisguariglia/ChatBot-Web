@@ -13,10 +13,10 @@ export class UsuarioService {
     private authService:AuthService) { }
 
   getUsuarios(){
-    return this.http.post<any>('http://localhost:8080/usuario/listado', {});
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/usuario/listado', {});
   }
   borrarUsuario(id){
-    return this.http.post<any>('http://localhost:8080/usuario/delete', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/usuario/delete', {
       id:id,
       });
   }
@@ -26,25 +26,25 @@ export class UsuarioService {
     //return of(USUARIOS.find(hero => hero.id === id));
   //}
   updateEstadoAsignatura(id,estado){
-    return this.http.post<any>('http://localhost:8080/usuario/updateUA', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/usuario/updateUA', {
       id:id,
       estado:estado
       });
   }
   borrarEstadoAsignatura(id){
-    return this.http.post<any>('http://localhost:8080/usuario/usuarioAsignaturaDelete', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/usuario/usuarioAsignaturaDelete', {
       id:id
       });
   }
   nuevoEstadoAsignatura(id,estado){
-    return this.http.post<any>('http://localhost:8080/usuario/asignaturaNuevo', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/usuario/asignaturaNuevo', {
       idUser:this.authService.getActualUser(),
       idAsig:id,
       estado:estado
       });
   }
   getUsuarioAsignatura(id){      //pedir un usuarioasignatura especifico
-    return this.http.post<any>('http://localhost:8080/usuario/detalleUA', {
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/usuario/detalleUA', {
       id:id,
       });
   }
