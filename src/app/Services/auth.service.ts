@@ -25,7 +25,8 @@ export class AuthService {
     localStorage.setItem("actualUser",id);
   }
   registerUser(cedula,nombre,apellido,password){
-    return this.http.post<any>('http://localhost:8080/usuario/nuevo', {
+    //http://localhost:8080
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/usuario/nuevo', {
       cedula:cedula,
       nombre:nombre,
       apellido:apellido,
