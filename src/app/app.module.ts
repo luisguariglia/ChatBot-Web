@@ -37,7 +37,7 @@ import { NuevapreguntaComponent } from './preguntas/nuevapregunta/nuevapregunta.
 import { FeriadoComponent } from './feriados/feriado/feriado.component';
 import { NuevoFeriadoComponent } from './feriados/nuevo-feriado/nuevo-feriado.component';
 import { ExcelComponent } from './excels/excel/excel.component';
-
+import { DataTablesModule } from 'angular-datatables';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +60,8 @@ import { ExcelComponent } from './excels/excel/excel.component';
     CommonModule,
     BrowserAnimationsModule, 
     ToastrModule.forRoot(),
-    FontAwesomeModule
+    FontAwesomeModule,
+    DataTablesModule
   ],
   providers: [AuthService,AuthGuard,
   {
