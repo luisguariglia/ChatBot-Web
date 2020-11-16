@@ -42,6 +42,17 @@ export class ChatService {
     
     return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/preguntas/FAQcal10',{codigo:codigo});
   }
+  creditos(codigo) {
+    const headers = { 'Authorization': '*'};
+    
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/preguntas/FAQcal13',{codigo:codigo});
+  }
+  limite(codigo) {
+    const headers = { 'Authorization': '*'};
+    
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/preguntas/FAQcal12',{codigo:codigo});
+  }
+
   cursada(codigo) {
     const headers = { 'Authorization': '*'};
     var id= this.auth.getActualUser();

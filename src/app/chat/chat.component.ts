@@ -55,16 +55,43 @@ export class ChatComponent implements OnInit {
       this.responder(data.Reply,false);
     });
   }
+
+  creditos(){
+    this.mensajes[this.mensajes.length-1].botones = false;
+    this.mensajes[this.mensajes.length-1].msj = "Escribiendo...";
+    this.messageService.creditos(this.codigo).subscribe(data =>{
+      this.responder(data.Reply,false);
+    });
+  }
+  limite(){
+    this.mensajes[this.mensajes.length-1].botones = false;
+    this.mensajes[this.mensajes.length-1].msj = "Escribiendo...";
+    this.messageService.limite(this.codigo).subscribe(data =>{
+      this.responder(data.Reply,false);
+    });
+  }
  
   enviarMensaje(){
+    let horaf;
+    let minutosf;
+    if(new Date().getHours() < 10){
+      horaf = "0"+new Date().getHours();
+    }else{
+      horaf = new Date().getHours();
+    }
+    if(new Date().getMinutes() < 10){
+      minutosf = "0"+new Date().getMinutes();
+    }else{
+      minutosf = new Date().getMinutes();
+    }
     if(this.contenidoMensaje.length>255){
-      this.mensajes.push({id:"tu", msj:this.contenidoMensaje,tono:"obscuro",hora:new Date().getHours()+":"+new Date().getMinutes()});
+      this.mensajes.push({id:"tu", msj:this.contenidoMensaje,tono:"obscuro",hora:horaf+":"+minutosf});
       this.responderErrorLargo();
     }else if(this.contenidoMensaje==""){
-      this.mensajes.push({id:"tu", msj:this.contenidoMensaje,tono:"obscuro",hora:new Date().getHours()+":"+new Date().getMinutes()});
+      this.mensajes.push({id:"tu", msj:this.contenidoMensaje,tono:"obscuro",hora:horaf+":"+minutosf});
       this.responderErrorVacio();
     }else{
-      this.mensajes.push({id:"tu", msj:this.contenidoMensaje,tono:"obscuro",hora:new Date().getHours()+":"+new Date().getMinutes()});
+      this.mensajes.push({id:"tu", msj:this.contenidoMensaje,tono:"obscuro",hora:horaf+":"+minutosf});
       let mensaje = this.contenidoMensaje;
       this.contenidoMensaje = "";
       this.mensajes.push({id:"temporal", msj:"Escribiendo...",tono:"claro",hora:""});
@@ -91,18 +118,55 @@ export class ChatComponent implements OnInit {
      
   }
   responderErrorLargo(){
-    this.mensajes.push({id:"boot",botones:false,msj:"No puedo entender más de 255 caractéres :(" ,tono:"claro",hora:new Date().getHours()+":"+new Date().getMinutes()});
+
+    let horaf;
+    let minutosf;
+    if(new Date().getHours() < 10){
+      horaf = "0"+new Date().getHours();
+    }else{
+      horaf = new Date().getHours();
+    }
+    if(new Date().getMinutes() < 10){
+      minutosf = "0"+new Date().getMinutes();
+    }else{
+      minutosf = new Date().getMinutes();
+    }
+    this.mensajes.push({id:"boot",botones:false,msj:"No puedo entender más de 255 caractéres :(" ,tono:"claro",hora:horaf+":"+minutosf});
     setTimeout(() => {  var chatHistory = document.getElementById("chat");
     chatHistory.scrollTop = chatHistory.scrollHeight; }, 50);
   }
   responderErrorVacio(){
-    this.mensajes.push({id:"boot",botones:false, msj:"Escribe una consulta por favor" ,tono:"claro",hora:new Date().getHours()+":"+new Date().getMinutes()});
+    let horaf;
+    let minutosf;
+    if(new Date().getHours() < 10){
+      horaf = "0"+new Date().getHours();
+    }else{
+      horaf = new Date().getHours();
+    }
+    if(new Date().getMinutes() < 10){
+      minutosf = "0"+new Date().getMinutes();
+    }else{
+      minutosf = new Date().getMinutes();
+    }
+    this.mensajes.push({id:"boot",botones:false, msj:"Escribe una consulta por favor" ,tono:"claro",hora:horaf+":"+minutosf});
     setTimeout(() => {  var chatHistory = document.getElementById("chat");
     chatHistory.scrollTop = chatHistory.scrollHeight; }, 50);
   }
   responder(respuesta,boton){
+    let horaf;
+    let minutosf;
+    if(new Date().getHours() < 10){
+      horaf = "0"+new Date().getHours();
+    }else{
+      horaf = new Date().getHours();
+    }
+    if(new Date().getMinutes() < 10){
+      minutosf = "0"+new Date().getMinutes();
+    }else{
+      minutosf = new Date().getMinutes();
+    }
     this.mensajes.pop();
-    this.mensajes.push({id:"boot",botones:boton,msj:respuesta,tono:"claro",hora:new Date().getHours()+":"+new Date().getMinutes()});
+    this.mensajes.push({id:"boot",botones:boton,msj:respuesta,tono:"claro",hora:horaf+":"+minutosf});
     setTimeout(() => {  var chatHistory = document.getElementById("chat");
     chatHistory.scrollTop = chatHistory.scrollHeight; }, 50);
     
