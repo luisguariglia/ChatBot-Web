@@ -78,6 +78,26 @@ html {
   height:45px;
  }
 
+ .option {
+	background-color:#e6e6e6;
+	border-radius:28px;
+	border:1px solid #ebe6eb;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	
+	padding:5px 20px;
+	text-decoration:none;
+	
+}
+.option:hover {
+	background-color:rgb(175, 175, 177);
+}
+.option:active {
+	position:relative;
+	top:1px;
+}
 
  @media (max-width: 800px) {
 

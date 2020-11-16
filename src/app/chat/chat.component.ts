@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 //import { ConsoleReporter } from 'jasmine';
 import { ChatService } from '../Services/chat.service';
 import { AuthService } from '../Services/auth.service';
-
+import { DomSanitizer } from '@angular/platform-browser'
 
 @Component({
   selector: 'app-chat',
@@ -15,10 +15,11 @@ export class ChatComponent implements OnInit {
 	descripcion = "Ingresa tu consulta para comenzar";
   contenidoMensaje: string;
   mensajes= [];
-
+  codigo = "";
   constructor(
      private messageService: ChatService,
-     private authService:AuthService
+     private authService:AuthService,
+     private sanitized: DomSanitizer
     ) { }
 
   ngOnInit(): void {
@@ -26,8 +27,34 @@ export class ChatComponent implements OnInit {
       alert(data.data);
     })*/
   }
-
-
+  horarios(){
+    this.mensajes[this.mensajes.length-1].botones = false;
+    this.mensajes[this.mensajes.length-1].msj = "Escribiendo...";
+    this.messageService.horarios(this.codigo).subscribe(data =>{
+      this.responder(data.Reply,false);
+    });
+  }
+  profesor(){
+    this.mensajes[this.mensajes.length-1].botones = false;
+    this.mensajes[this.mensajes.length-1].msj = "Escribiendo...";
+    this.messageService.profesor(this.codigo).subscribe(data =>{
+      this.responder(data.Reply,false);
+    });
+  }
+  evaluaciones(){
+    this.mensajes[this.mensajes.length-1].botones = false;
+    this.mensajes[this.mensajes.length-1].msj = "Escribiendo...";
+    this.messageService.evaluaciones(this.codigo).subscribe(data =>{
+      this.responder(data.Reply,false);
+    });
+  }
+  cursada(){
+    this.mensajes[this.mensajes.length-1].botones = false;
+    this.mensajes[this.mensajes.length-1].msj = "Escribiendo...";
+    this.messageService.cursada(this.codigo).subscribe(data =>{
+      this.responder(data.Reply,false);
+    });
+  }
  
   enviarMensaje(){
     if(this.contenidoMensaje.length>255){
@@ -47,11 +74,15 @@ export class ChatComponent implements OnInit {
       .subscribe(data => {
         if(data.Reply == ""){
           this.messageService.webhook().subscribe(data => {
-            this.responder(data.Reply);
+            this.responder(data.Reply,false);
             //console.log(data.Reply);
           });
+        }else if(data.Reply.includes("asignatura-")){
+          this.responder("¿Qué deseas saber sobre esta asignatúra?<br>",true);
+          let cod = data.Reply.split("-");
+          this.codigo = cod[1];
         }else{
-          this.responder(data.Reply);
+          this.responder(data.Reply,false);
         }
         
       });
@@ -60,18 +91,18 @@ export class ChatComponent implements OnInit {
      
   }
   responderErrorLargo(){
-    this.mensajes.push({id:"boot",msj:"No puedo entender más de 255 caractéres :(" ,tono:"claro",hora:new Date().getHours()+":"+new Date().getMinutes()});
+    this.mensajes.push({id:"boot",botones:false,msj:"No puedo entender más de 255 caractéres :(" ,tono:"claro",hora:new Date().getHours()+":"+new Date().getMinutes()});
     setTimeout(() => {  var chatHistory = document.getElementById("chat");
     chatHistory.scrollTop = chatHistory.scrollHeight; }, 50);
   }
   responderErrorVacio(){
-    this.mensajes.push({id:"boot",msj:"Escribe una consulta por favor" ,tono:"claro",hora:new Date().getHours()+":"+new Date().getMinutes()});
+    this.mensajes.push({id:"boot",botones:false, msj:"Escribe una consulta por favor" ,tono:"claro",hora:new Date().getHours()+":"+new Date().getMinutes()});
     setTimeout(() => {  var chatHistory = document.getElementById("chat");
     chatHistory.scrollTop = chatHistory.scrollHeight; }, 50);
   }
-  responder(respuesta){
+  responder(respuesta,boton){
     this.mensajes.pop();
-    this.mensajes.push({id:"boot", msj:respuesta,tono:"claro",hora:new Date().getHours()+":"+new Date().getMinutes()});
+    this.mensajes.push({id:"boot",botones:boton,msj:respuesta,tono:"claro",hora:new Date().getHours()+":"+new Date().getMinutes()});
     setTimeout(() => {  var chatHistory = document.getElementById("chat");
     chatHistory.scrollTop = chatHistory.scrollHeight; }, 50);
     

@@ -26,6 +26,31 @@ export class ChatService {
     
     return this.http.post<any>('https://chatbot-tip-backend-dialogflow.herokuapp.com/ultima',{});
   }
+
+  profesor(codigo) {
+    const headers = { 'Authorization': '*'};
+    
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/preguntas/FAQcal11',{codigo:codigo});
+  }
+  horarios(codigo) {
+    const headers = { 'Authorization': '*'};
+    
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/preguntas/FAQcal9',{codigo:codigo});
+  }
+  evaluaciones(codigo) {
+    const headers = { 'Authorization': '*'};
+    
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/preguntas/FAQcal10',{codigo:codigo});
+  }
+  cursada(codigo) {
+    const headers = { 'Authorization': '*'};
+    var id= this.auth.getActualUser();
+    if(id == null || id == undefined){
+      id = "0";
+    }
+    return this.http.post<any>('https://chatbot-tip-backend.herokuapp.com/preguntas/FAQcal8',{codigo:codigo,id:id});
+  }
+
   clear() {
     //this.messages = [];
   }
