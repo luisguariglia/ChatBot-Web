@@ -15,6 +15,7 @@
 								<p>¡Hola! Soy el asistente virtual del TIP ¿En que puedo ayudarte?<br>
 								- Puedes realizarme una consulta de la carrera del Tecnólogo en Informática.<br>
 								- Si tu pregunta requiere estar logueado, te lo haré saber!<br>
+								- Puedes escribir el nombre de una asignatura y te daré opciones.<br>
 								- Si escribes "Wiki RPyL" y lo que quieras buscar te mostraré resultados de la wiki creada por los estudiantes. :D<br>
 								</p>
 							</div>
@@ -23,7 +24,8 @@
 						<div *ngFor="let m of mensajes">
 							<div class="container ">
 								<div class="aling {{m.tono}}">
-									<p [innerHTML]="m.msj"></p>
+									<div [innerHTML]="m.msj"></div>
+									<div *ngIf="m.botones"><button (click)='profesor()' class='option mt-1'>¿Quién la dicta?</button><button (click)='horarios()' class='option mt-1 ml-1'>Horarios</button><button (click)='evaluaciones()' class='option mt-1 ml-1'>Evaluaciones</button><button (click)="limite()" class='option mt-1 ml-1'>Límite de inscripción</button><button (click)="creditos()" class='option mt-1 ml-1'>Creditos que otorga</button><button (click)="cursada()" class='option mt-1 ml-1'>Puedo cursarla?</button></div>
 									<span class="time-right">{{m.hora}}</span>
 								</div>
 							</div>

@@ -14,6 +14,7 @@ import { variablesGlobales } from "../../Services/variablesGlobales";
 })
 export class LoginComponent implements OnInit {
   datosMal:boolean;
+  enviados:boolean;
   profileForm = new FormGroup({
     cedula: new FormControl('',[
     Validators.required//,
@@ -28,14 +29,17 @@ export class LoginComponent implements OnInit {
     private auth: AuthService,
     private fb: FormBuilder) {
       this.datosMal=false;
+      this.enviados=false;
      }
 
   ngOnInit(): void {
   }
 
   login(){
+    this.enviados = true;
     this.auth.loginUser(this.profileForm.value.cedula,this.profileForm.value.password)
     .subscribe(data => {
+      this.enviados = false;
       if(data.ok){
         //alert(data.usuario.id);
         //variablesGlobales.setActualUser(data.usuario.id);
