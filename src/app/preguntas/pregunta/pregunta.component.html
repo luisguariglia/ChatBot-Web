@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-4">
     <div class="row">
       <div class="col-sm-1"></div>
       <div class="col-sm">
@@ -7,7 +7,7 @@
             <div class="card-body">      
               
               <button class="btn btn-primary mb-2" routerLink="/nuevaPregunta"><i class="fa fa-plus" aria-hidden="true"></i> Nueva pregunta</button>
-              <table class="table table-responsive-xl">
+              <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table  table-responsive-xl table-striped table-bordered">
                 <thead >
                   <tr>
                     <th scope="col">Nombre</th>

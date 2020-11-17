@@ -7,13 +7,15 @@
           
           <div class="card-body">      
             <button class="btn btn-primary mb-2" (click)="volver()">Volver</button>
-          <table class="table table-responsive-xl">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table  table-responsive-xl table-striped ">
+              <thead>    
                 <tr>
                   <th scope="col">Código</th>
                   <th scope="col">Nombre</th>
                   <th scope="col">Correo del docente</th>      
                   <th scope="col">Acciones</th>
                 </tr>
+              </thead>    
               <tbody>
                 <tr *ngFor="let asignatura of asignaturas; index as i">
                   
@@ -22,8 +24,8 @@
                   <td>{{asignatura.correoDoc}}</td>
 
                   
-
-                  <div class="dropright">
+                  
+                  <td class="dropright">
                     <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       SeleccionarEstado
                     </button>
@@ -32,8 +34,8 @@
                       <button class="dropdown-item" (click)="nuevoEstado(asignatura.id,'Exámen')"><i class="fa fa-minus" aria-hidden="true"></i> Exámen</button>
                       <button class="dropdown-item" (click)="nuevoEstado(asignatura.id,'Exonerada')"><i class="fa fa-check" aria-hidden="true"></i> Exonerada</button>
                     </div>
-                  </div>
-
+                  </td>
+                </tr>
               </tbody>
               </table>
             

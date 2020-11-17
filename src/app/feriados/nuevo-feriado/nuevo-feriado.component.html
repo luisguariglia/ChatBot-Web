@@ -1,6 +1,5 @@
 <div class="container">
     <div class="row">
-      <div class="col-sm-1"></div>
       <div class="col-sm">
         <div class="card mt-4">
           <div class="card-body">
@@ -9,7 +8,7 @@
             </div>
             <div class="container">
               <div class="d-flex justify-content-center">
-                <div class="col-5">
+                <div class="col mx-2">
                     <form [formGroup]="profileForm" (ngSubmit)="addFeriado()" class="mt-1">
                     <label>Fecha*</label>
                     <input formControlName="fecha" type="date" class="form-control">
@@ -29,7 +28,6 @@
           </div>
       </div>
       </div>
-      <div class="col-sm-1"></div>
     </div>
   </div>
   
